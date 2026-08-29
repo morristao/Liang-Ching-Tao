@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Liang-Ching Tao researches learning-guided planning and sequential decision-making using reinforcement learning, search, and graph-based representations.">
+    <meta property="og:title" content="Liang-Ching Tao | Learning-Guided Planning & Reinforcement Learning">
+    <meta property="og:description" content="Research on learning-guided planning, sequential decision-making, reinforcement learning, search, and graph-based representations.">
+    <meta property="og:type" content="website">
+    <title>Liang-Ching Tao | Learning-Guided Planning & Reinforcement Learning</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <nav class="nav-wrap" aria-label="Primary navigation">
+        <a class="wordmark" href="#top" aria-label="Liang-Ching Tao, home">Liang-Ching Tao</a>
+        <div class="nav-links">
+          <a href="#research">Research</a>
+          <a href="#trajectory">Trajectory</a>
+          <a href="#about">About</a>
+          <a href="academic_cv.pdf">CV</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section id="top" class="hero section-wrap" aria-labelledby="hero-title">
+        <p class="kicker">Computer Science · Taiwan</p>
+        <h1 id="hero-title">Learning-guided planning for structured sequential decisions.</h1>
+        <p class="research-line">Reinforcement Learning <span aria-hidden="true">·</span> Search <span aria-hidden="true">·</span> Graph-Based Representations</p>
+        <div class="hero-copy">
+          <p>I am Liang-Ching Tao, an M.S. researcher in Computer Science and Engineering at National Chung Hsing University. I study how learned policies and representations can guide search—particularly Monte Carlo Tree Search—in large, structured decision spaces.</p>
+          <p>I am preparing for Fall 2027 PhD applications in AI planning, sequential decision-making, and reinforcement learning.</p>
+        </div>
+        <div class="hero-actions" aria-label="Primary links">
+          <a class="button primary" href="academic_cv.pdf">View CV <span aria-hidden="true">↗</span></a>
+          <a class="button" href="#research">Selected research <span aria-hidden="true">↓</span></a>
+        </div>
+      </section>
+
+      <section class="interests section-wrap" aria-labelledby="interests-title">
+        <p class="section-label">Research interests</p>
+        <h2 id="interests-title">Methods for making better decisions under structure and constraint.</h2>
+        <ul class="interest-list" aria-label="Research interests">
+          <li>Learning-Guided Planning</li><li>Reinforcement Learning</li><li>Monte Carlo Tree Search</li><li>Sequential Decision-Making</li><li>Graph-Based Learning</li><li>Adaptive Agents &amp; Reasoning</li>
+        </ul>
+      </section>
+
+      <section id="research" class="section-wrap research" aria-labelledby="research-title">
+        <div class="section-heading">
+          <div><p class="section-label">Selected research</p><h2 id="research-title">Planning questions, not just application domains.</h2></div>
+          <p>My work uses structured scheduling environments to investigate more general questions about learning, search, and sequential decisions.</p>
+        </div>
+        <div class="project-list">
+          <article class="project project-current">
+            <div class="project-index" aria-hidden="true">01</div>
+            <div class="project-content">
+              <p class="project-type">Current research</p>
+              <h3>Learning-Guided MCTS for Structured Sequential Decision-Making</h3>
+              <p>How can search use a learned prior when the root action space is large, combinatorial, and subject to a limited simulation budget? This project combines graph-based policy representations with Monte Carlo Tree Search, examining action canonicalization, sampled-action search, evaluator design, and the empirical behavior of search itself.</p>
+              <ul class="method-list"><li>Graph-based policy priors</li><li>MCTS under bounded computation</li><li>Action representation and canonicalization</li><li>Controlled evaluation and baselines</li></ul>
+            </div>
+          </article>
+          <article class="project">
+            <div class="project-index" aria-hidden="true">02</div>
+            <div class="project-content">
+              <p class="project-type">Master’s thesis</p>
+              <h3>Hierarchical Reinforcement Learning for Multi-Charger Scheduling</h3>
+              <p>My master’s work treats wireless rechargeable sensor networks as a demanding sequential optimization setting. A high-level Q-learning component selects regions or scheduling decisions, while force-aware routing determines charger movement. The methodological focus is hierarchical decomposition across coupled scheduling and routing decisions.</p>
+              <ul class="method-list"><li>Hierarchical Q-learning</li><li>High-level scheduling</li><li>Low-level routing</li><li>Multi-charger decision-making</li></ul>
+            </div>
+          </article>
+          <article class="project">
+            <div class="project-index" aria-hidden="true">03</div>
+            <div class="project-content">
+              <p class="project-type">Research project</p>
+              <h3>Neural-Guided Search for Graph-Structured Decisions</h3>
+              <p>This work investigates neural guidance at the root and leaf of Monte Carlo Tree Search. It connects my work on hierarchical RL to current learning-guided planning by asking a practical question: when does a learned predictor improve the decisions reached by search, rather than only its own prediction score?</p>
+              <ul class="method-list"><li>Root and leaf guidance</li><li>Prediction versus planning utility</li><li>Search guidance</li><li>Graph-structured decisions</li></ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="trajectory" class="trajectory" aria-labelledby="trajectory-title">
+        <div class="section-wrap">
+          <p class="section-label">Research trajectory</p>
+          <h2 id="trajectory-title">From a concrete scheduling problem to the principles of learning-guided planning.</h2>
+          <ol class="trajectory-list">
+            <li><span>01</span><strong>Structured scheduling</strong><p>Coupled charging, routing, and allocation decisions.</p></li>
+            <li><span>02</span><strong>Hierarchical RL</strong><p>Decompose strategic scheduling from operational movement.</p></li>
+            <li><span>03</span><strong>Neural-guided MCTS</strong><p>Study how learned guidance changes search outcomes.</p></li>
+            <li><span>04</span><strong>Learning-guided planning</strong><p>Combine graph representations, learned priors, and search.</p></li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="about" class="about section-wrap" aria-labelledby="about-title">
+        <div><p class="section-label">About</p><h2 id="about-title">Academic background</h2></div>
+        <div class="about-copy">
+          <p>I am Liang-Ching Tao (陶亮清), based in Taiwan. My work began with reinforcement-learning approaches to multi-charger scheduling in wireless rechargeable sensor networks and progressed toward the more general problem of planning under large structured action spaces. At National Chung Hsing University, I have worked on hierarchical Q-learning, force-aware routing, neural-guided Monte Carlo Tree Search, and graph-based policy representations.</p>
+          <p>I am especially interested in research that evaluates learning and search as a joint system: through careful baselines, ablations, reproducible simulations, and attention to failure modes. In a PhD, I hope to build on this foundation in planning, sequential decision-making, adaptive agents, and reasoning.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-wrap"><p><strong>Liang-Ching Tao</strong><br>Taiwan · Learning-guided planning and sequential decision-making</p><a href="academic_cv.pdf">Curriculum vitae <span aria-hidden="true">↗</span></a></div>
+    </footer>
+  </body>
+</html>
