@@ -28,10 +28,10 @@
     <main id="main-content">
       <section id="top" class="hero section-wrap" aria-labelledby="hero-title">
         <p class="kicker">Computer Science · Taiwan</p>
-        <h1 id="hero-title">Learning-guided AI planning for structured sequential decisions.</h1>
+        <h1 id="hero-title">Learning-guided planning for complex decisions.</h1>
         <p class="research-line">AI Planning <span aria-hidden="true">·</span> Reinforcement Learning <span aria-hidden="true">·</span> Neural-Guided Search</p>
         <div class="hero-copy">
-          <p>I am Liang-Ching Tao, an M.S. graduate in Computer Science and Engineering from National Chung Hsing University. I study how learned policies and neural representations can guide planning—particularly Monte Carlo Tree Search—in large, structured decision spaces.</p>
+          <p>I am Liang-Ching Tao, an M.S. graduate in Computer Science and Engineering from National Chung Hsing University. I study AI planning and sequential decision-making: how learned policies and neural representations can guide search—particularly Monte Carlo Tree Search—when decisions are large, structured, and computation is limited.</p>
           <p>I am preparing for Fall 2027 PhD applications in AI planning, sequential decision-making, reinforcement learning, and learning-guided search.</p>
         </div>
         <div class="hero-actions" aria-label="Primary links">
@@ -59,27 +59,27 @@
             <div class="project-content">
               <p class="project-type">Current research · September 2026–present</p>
               <h3>Learning-Guided Multi-Charger Planning with Neural-Guided Search</h3>
-              <p>This project extends neural-guided search to multi-charger scheduling, treating coordination as a structured sequential decision problem. It combines graph-based policy representations with search while investigating canonical actions, action-space reduction, sampled-action ideas, and the allocation of limited planning computation.</p>
-              <ul class="method-list"><li>Learning-guided planning</li><li>Graph-based policy representations</li><li>MCTS under bounded computation</li><li>Structured multi-charger coordination</li></ul>
+              <p>Developing a learning-guided planning framework for multi-charger scheduling that combines graph-based policy representations with neural-guided search over large, structured action spaces. The work investigates canonical actions, action-space reduction, and sampled-action ideas for allocating limited search computation more effectively, while treating multi-agent coordination as a possible extension rather than a completed MARL system.</p>
+              <ul class="method-list"><li>Learning-guided planning</li><li>Graph-based policy representations</li><li>Canonical actions and action-space reduction</li><li>Sampled-action search under bounded computation</li></ul>
             </div>
           </article>
           <article class="project">
             <div class="project-index" aria-hidden="true">02</div>
+            <div class="project-content">
+              <p class="project-type">Research project · 2026–present</p>
+              <h3>Neural-Guided MCTS for Single-Charger WRSN Scheduling</h3>
+              <p>This work established the neural-guided search foundation for my current planning direction. It evaluates root- and leaf-level neural guidance in Monte Carlo Tree Search and asks whether learned predictors improve end-to-end planning utility under bounded computation, rather than only standalone prediction scores.</p>
+              <ul class="method-list"><li>Root and leaf guidance</li><li>End-to-end planning utility</li><li>Search under bounded computation</li><li>Neural representations for planning</li></ul>
+            </div>
+          </article>
+          <article class="project">
+            <div class="project-index" aria-hidden="true">03</div>
             <div class="project-content">
               <p class="project-type">Master’s thesis</p>
               <h3>Hierarchical Reinforcement Learning for Multi-Charger Scheduling</h3>
               <p>My master’s work treats wireless rechargeable sensor networks as a demanding sequential optimization setting. A high-level Q-learning component selects regions or scheduling decisions, while force-aware routing determines charger movement. The methodological focus is hierarchical decomposition across coupled scheduling and routing decisions.</p>
               <ul class="method-list"><li>Hierarchical Q-learning</li><li>High-level scheduling</li><li>Low-level routing</li><li>Multi-charger decision-making</li></ul>
               <p class="project-links"><span class="project-acceptance">Poster · Accepted for presentation at MAMM 2026</span><a href="https://doi.org/10.5281/zenodo.22703448" target="_blank" rel="noopener noreferrer">Preprint <span aria-hidden="true">↗</span></a></p>
-            </div>
-          </article>
-          <article class="project">
-            <div class="project-index" aria-hidden="true">03</div>
-            <div class="project-content">
-              <p class="project-type">Research project · 2026–present</p>
-              <h3>Neural-Guided MCTS for Single-Charger WRSN Scheduling</h3>
-              <p>This work established the neural-guided search foundation for my current planning direction. It evaluates root- and leaf-level neural guidance in Monte Carlo Tree Search and asks whether learned predictors improve end-to-end planning utility under bounded computation, rather than only standalone prediction scores.</p>
-              <ul class="method-list"><li>Root and leaf guidance</li><li>End-to-end planning utility</li><li>Search under bounded computation</li><li>Neural representations for planning</li></ul>
             </div>
           </article>
         </div>
@@ -133,10 +133,10 @@
       </section>
 
       <section id="about" class="about section-wrap" aria-labelledby="about-title">
-        <div><p class="section-label">About</p><h2 id="about-title">Academic background</h2></div>
+        <div><p class="section-label">About</p><h2 id="about-title">Research perspective</h2></div>
         <div class="about-copy">
-          <p>I am Liang-Ching Tao (陶亮清), based in Taiwan. My work began with reinforcement-learning approaches to multi-charger scheduling in wireless rechargeable sensor networks and developed into a broader interest in AI planning under large, structured action spaces. At National Chung Hsing University, I have worked on hierarchical decision-making, force-aware routing, neural-guided Monte Carlo Tree Search, graph-based policy representations, and applied deep-learning systems.</p>
-          <p>I am especially interested in research that evaluates learning and search as a joint decision-making system: through end-to-end planning utility, careful baselines, ablations, reproducible simulations, and attention to failure modes. In a PhD, I hope to build on this foundation in AI planning, reinforcement learning, sequential decision-making, and learning-guided search.</p>
+          <p>My research began with multi-charger scheduling in wireless rechargeable sensor networks, where coupled routing, charging, and allocation decisions made hierarchical decomposition essential. This setting led me from reinforcement learning and force-aware routing to neural-guided Monte Carlo Tree Search and graph-based policy representations.</p>
+          <p>The question that now motivates my work is not simply whether a learned component predicts well, but whether it improves the decisions reached by a planner. I study learning and search as a joint system through end-to-end planning utility, controlled baselines, ablations, reproducible simulations, and attention to failure modes.</p>
         </div>
       </section>
     </main>
