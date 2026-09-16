@@ -1,15 +1,236 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" role="img" aria-labelledby="title desc">
-  <title id="title">ATDS threshold and detour scheduling schematic</title>
-  <desc id="desc">A technical scheduling snapshot showing cluster thresholds, an assigned charging route, and a corridor-feasible detour to a critical cluster.</desc>
-  <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8Z" fill="#0d6179"/></marker><style>text{font-family:system-ui,-apple-system,Segoe UI,sans-serif;fill:#17222b}.small{font-size:13px;fill:#58656f}.label{font-size:15px;font-weight:650}.tiny{font-size:12px;fill:#58656f}.node{fill:#fff;stroke:#64727a;stroke-width:2}.urgent{fill:#f7ddd4;stroke:#b44a3c;stroke-width:2}.cluster{fill:none;stroke:#9ea9ad;stroke-width:1.5;stroke-dasharray:4 4}.route{fill:none;stroke:#0d6179;stroke-width:3}.optional{fill:none;stroke:#b44a3c;stroke-width:3;stroke-dasharray:7 5}</style></defs>
-  <rect width="1000" height="560" fill="#fff"/><rect x="24" y="22" width="952" height="490" rx="6" fill="#fbfcfb" stroke="#d4d9d8"/>
-  <text x="52" y="58" class="label">ATDS: thresholded requests and one route-time detour</text><text x="52" y="80" class="small">The request threshold is updated per cluster; the detour decision is taken only at departure.</text>
-  <rect x="72" y="250" width="48" height="31" rx="4" fill="#17222b"/><path d="M84 250 L96 227 L108 250" fill="none" stroke="#17222b" stroke-width="3"/><text x="67" y="305" class="small">base</text>
-  <ellipse cx="280" cy="170" rx="88" ry="61" class="cluster"/><text x="223" y="107" class="tiny">cluster A · threshold τA</text><circle cx="250" cy="169" r="7" class="node"/><circle cx="282" cy="145" r="7" class="node"/><circle cx="307" cy="184" r="7" class="node"/><circle cx="273" cy="208" r="7" class="node"/>
-  <ellipse cx="497" cy="295" rx="78" ry="57" class="cluster"/><text x="442" y="230" class="tiny">cluster B · critical request</text><circle cx="466" cy="287" r="8" class="urgent"/><circle cx="505" cy="265" r="8" class="urgent"/><circle cx="530" cy="313" r="8" class="urgent"/><circle cx="486" cy="333" r="8" class="urgent"/>
-  <ellipse cx="780" cy="180" rx="93" ry="64" class="cluster"/><text x="713" y="108" class="tiny">cluster C · selected target</text><circle cx="744" cy="175" r="7" class="node"/><circle cx="783" cy="148" r="7" class="node"/><circle cx="818" cy="186" r="7" class="node"/><circle cx="778" cy="213" r="7" class="node"/>
-  <path d="M130 262 L732 184" class="route" marker-end="url(#arrow)"/><path d="M402 227 L570 206" stroke="#0d6179" stroke-width="74" stroke-opacity=".10" stroke-linecap="round"/><text x="403" y="196" class="tiny">feasible detour corridor</text>
-  <path d="M375 229 Q472 246 567 214" class="optional"/><path d="M567 214 Q662 196 731 184" class="optional"/><text x="456" y="377" class="label" fill="#b44a3c">detour only when B becomes critical</text>
-  <g><rect x="323" y="234" width="33" height="20" rx="5" fill="#0d6179" stroke="#fff" stroke-width="3"/><circle cx="330" cy="257" r="4" fill="#17222b"/><circle cx="349" cy="257" r="4" fill="#17222b"/></g><text x="296" y="279" class="tiny">mobile charger</text>
-  <line x1="54" y1="474" x2="80" y2="474" class="route" marker-end="url(#arrow)"/><text x="90" y="479" class="small">scheduled route</text><line x1="250" y1="474" x2="276" y2="474" class="optional"/><text x="287" y="479" class="small">accepted detour</text><circle cx="488" cy="474" r="7" class="urgent"/><text x="503" y="479" class="small">threshold-triggered request</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 500" width="760" height="500" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+<title id="t">ATDS threshold and detour scheduling</title><desc id="d">Left: sensors report to a central base station over a multi-hop tree and are grouped into clusters; three chargers are idle, departing, and charging. Right: a charger bound for target cluster A may detour to a candidate cluster B that lies inside a corridor around the direct path and whose state of charge is below its threshold; a cluster outside the corridor is never a candidate.</desc>
+<rect width="760" height="500" fill="#FDFBF7"/>
+<defs><marker id="am" markerWidth="8" markerHeight="8" refX="6.5" refY="3" orient="auto"><path d="M0 0L7 3L0 6z" fill="#5B534B"/></marker><marker id="aa" markerWidth="8" markerHeight="8" refX="6.5" refY="3" orient="auto"><path d="M0 0L7 3L0 6z" fill="#C0562B"/></marker><marker id="at" markerWidth="8" markerHeight="8" refX="6.5" refY="3" orient="auto"><path d="M0 0L7 3L0 6z" fill="#6B7A3A"/></marker><marker id="as" markerWidth="8" markerHeight="8" refX="6.5" refY="3" orient="auto"><path d="M0 0L7 3L0 6z" fill="#B7791F"/></marker><marker id="ai" markerWidth="8" markerHeight="8" refX="3.5" refY="3" orient="auto-start-reverse"><path d="M0 0L7 3L0 6z" fill="#3F3833"/></marker></defs>
+<text x="24" y="30" font-size="12.5" font-weight="700" fill="#C0562B" letter-spacing="1.6">ATDS · ADAPTIVE THRESHOLD + DETOUR</text>
+<text x="24" y="53" font-size="18" font-weight="700" fill="#3F3833">Per-cluster thresholds, and one detour decision at departure</text>
+<rect x="24" y="66" width="364" height="352" rx="6" fill="#FBF6EE" stroke="#E3D9CA"/>
+<text x="36.0" y="88.0" font-size="13" fill="#3F3833" text-anchor="start" font-weight="700">(a) System model</text>
+<text x="174.0" y="88.0" font-size="11.5" fill="#7A6F64" text-anchor="start" font-weight="400">Fig. 1 of the paper</text>
+<rect x="46.5" y="106.5" width="283.0" height="283.0" fill="#FFFDF9" stroke="#B8AB9B" stroke-width=".8"/>
+<path d="M144.8 234.4L188.0 248.0" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M151.3 221.4L188.0 248.0" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M147.1 227.6L188.0 248.0" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M146.1 226.0L188.0 248.0" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M173.5 297.8L188.0 248.0" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M240.3 250.3L188.0 248.0" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M239.0 259.9L188.0 248.0" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M239.2 261.1L188.0 248.0" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M239.8 261.5L188.0 248.0" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M167.8 300.6L188.0 248.0" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M138.8 220.4L188.0 248.0" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M176.7 308.6L173.5 297.8" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M249.2 255.2L240.3 250.3" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M169.4 307.4L173.5 297.8" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M164.7 305.8L173.5 297.8" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M168.9 311.7L173.5 297.8" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M160.3 309.3L173.5 297.8" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M172.0 316.4L173.5 297.8" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M245.4 203.4L240.3 250.3" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M232.0 189.2L245.4 203.4" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M234.2 189.7L245.4 203.4" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M244.2 195.9L240.3 250.3" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M239.6 189.6L245.4 203.4" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M111.2 262.9L144.8 234.4" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M108.2 253.0L144.8 234.4" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M107.6 260.8L144.8 234.4" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M103.5 250.2L144.8 234.4" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M102.0 249.6L144.8 234.4" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M99.3 241.8L144.8 234.4" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M252.0 185.7L245.4 203.4" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M122.9 184.9L144.8 234.4" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M126.2 180.0L151.3 221.4" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M134.1 173.1L151.3 221.4" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M126.7 175.6L151.3 221.4" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M123.3 178.6L151.3 221.4" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M206.0 342.2L173.5 297.8" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M206.2 352.6L176.7 308.6" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M209.2 352.5L176.7 308.6" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M198.8 356.0L176.7 308.6" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M203.9 356.8L176.7 308.6" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M288.3 202.3L245.4 203.4" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M200.0 359.3L176.7 308.6" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M292.1 203.4L245.4 203.4" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M205.2 361.8L172.0 316.4" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M296.2 202.3L245.4 203.4" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M243.8 143.7L232.0 189.2" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M295.4 197.5L245.4 203.4" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M289.7 312.0L287.9 309.7" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M249.7 143.3L232.0 189.2" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M252.9 145.3L232.0 189.2" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M289.8 318.6L287.9 309.7" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M292.0 316.6L287.9 309.7" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M288.7 322.5L287.9 309.7" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M296.8 312.0L287.9 309.7" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M259.7 141.6L232.0 189.2" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M265.1 145.3L232.0 189.2" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M258.5 139.8L232.0 189.2" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M86.7 151.6L122.9 184.9" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M84.5 151.4L122.9 184.9" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M83.4 152.0L122.9 184.9" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M89.0 144.0L122.9 184.9" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M83.2 149.8L122.9 184.9" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M86.1 144.3L122.9 184.9" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M72.8 342.2L80.4 340.8" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M78.6 349.6L80.4 340.8" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M86.5 138.1L126.7 175.6" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<path d="M70.4 356.3L80.4 340.8" stroke="#A39584" stroke-width=".6" opacity=".6"/>
+<circle cx="86.1" cy="146.1" r="14.2" fill="none" stroke="#B8AB9B" stroke-width="0.8" stroke-dasharray="3 2.5"/>
+<circle cx="134.2" cy="177.2" r="14.2" fill="none" stroke="#B8AB9B" stroke-width="0.8" stroke-dasharray="3 2.5"/>
+<circle cx="258.8" cy="140.5" r="14.2" fill="none" stroke="#B8AB9B" stroke-width="0.8" stroke-dasharray="3 2.5"/>
+<circle cx="295.5" cy="202.7" r="14.2" fill="none" stroke="#B8AB9B" stroke-width="0.8" stroke-dasharray="3 2.5"/>
+<circle cx="103.1" cy="253.7" r="14.2" fill="none" stroke="#B8AB9B" stroke-width="0.8" stroke-dasharray="3 2.5"/>
+<circle cx="168.2" cy="304.6" r="14.2" fill="none" stroke="#B8AB9B" stroke-width="0.8" stroke-dasharray="3 2.5"/>
+<circle cx="241.8" cy="259.3" r="14.2" fill="#F6E3D8" stroke="#C0562B" stroke-width="1.2" stroke-dasharray="3 2.5"/>
+<circle cx="289.9" cy="315.9" r="14.2" fill="#E8EAD6" stroke="#6B7A3A" stroke-width="1.2" stroke-dasharray="3 2.5"/>
+<circle cx="80.5" cy="344.2" r="14.2" fill="none" stroke="#B8AB9B" stroke-width="0.8" stroke-dasharray="3 2.5"/>
+<circle cx="205.0" cy="355.5" r="14.2" fill="none" stroke="#B8AB9B" stroke-width="0.8" stroke-dasharray="3 2.5"/>
+<circle cx="145.5" cy="222.5" r="14.2" fill="none" stroke="#B8AB9B" stroke-width="0.8" stroke-dasharray="3 2.5"/>
+<circle cx="244.6" cy="194.2" r="14.2" fill="none" stroke="#B8AB9B" stroke-width="0.8" stroke-dasharray="3 2.5"/>
+<circle cx="86.1" cy="144.3" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="84.5" cy="151.4" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="83.4" cy="152.0" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="86.5" cy="138.1" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="83.2" cy="149.8" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="89.0" cy="144.0" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="86.7" cy="151.6" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="134.1" cy="173.1" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="126.2" cy="180.0" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="122.9" cy="184.9" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="123.3" cy="178.6" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="126.7" cy="175.6" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="259.7" cy="141.6" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="243.8" cy="143.7" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="258.5" cy="139.8" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="249.7" cy="143.3" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="252.9" cy="145.3" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="265.1" cy="145.3" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="295.4" cy="197.5" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="292.1" cy="203.4" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="296.2" cy="202.3" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="288.3" cy="202.3" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="111.2" cy="262.9" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="108.2" cy="253.0" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="99.3" cy="241.8" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="107.6" cy="260.8" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="103.5" cy="250.2" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="102.0" cy="249.6" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="167.8" cy="300.6" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="176.7" cy="308.6" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="169.4" cy="307.4" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="168.9" cy="311.7" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="164.7" cy="305.8" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="173.5" cy="297.8" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="160.3" cy="309.3" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="172.0" cy="316.4" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="239.0" cy="259.9" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="249.2" cy="255.2" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="239.8" cy="261.5" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="240.3" cy="250.3" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="239.2" cy="261.1" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="292.0" cy="316.6" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="288.7" cy="322.5" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="289.8" cy="318.6" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="296.8" cy="312.0" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="289.7" cy="312.0" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="287.9" cy="309.7" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="80.4" cy="340.8" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="72.8" cy="342.2" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="70.4" cy="356.3" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="78.6" cy="349.6" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="206.0" cy="342.2" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="200.0" cy="359.3" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="206.2" cy="352.6" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="203.9" cy="356.8" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="209.2" cy="352.5" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="198.8" cy="356.0" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="205.2" cy="361.8" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="147.1" cy="227.6" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="151.3" cy="221.4" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="146.1" cy="226.0" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="144.8" cy="234.4" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="138.8" cy="220.4" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="232.0" cy="189.2" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="234.2" cy="189.7" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="239.6" cy="189.6" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="245.4" cy="203.4" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="252.0" cy="185.7" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="244.2" cy="195.9" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="239.0" cy="259.9" r="3.0" fill="#D9774A" stroke="#8C3B1B" stroke-width="1.0"/>
+<circle cx="249.2" cy="255.2" r="3.0" fill="#D9774A" stroke="#8C3B1B" stroke-width="1.0"/>
+<circle cx="239.8" cy="261.5" r="3.0" fill="#D9774A" stroke="#8C3B1B" stroke-width="1.0"/>
+<circle cx="240.3" cy="250.3" r="3.0" fill="#D9774A" stroke="#8C3B1B" stroke-width="1.0"/>
+<circle cx="239.2" cy="261.1" r="3.0" fill="#D9774A" stroke="#8C3B1B" stroke-width="1.0"/>
+<path d="M213.5 208.4L289.9 315.9" stroke="#5B534B" stroke-width="1.3" stroke-dasharray="4 3" marker-end="url(#am)"/>
+<rect x="182.5" y="242.5" width="11" height="11" rx="1.5" fill="#3F3833"/>
+<path d="M182.0 241.0L188.0 234.0L194.0 241.0" fill="none" stroke="#3F3833" stroke-width="1.4"/>
+<text x="188.0" y="266.0" font-size="10.5" fill="#7A6F64" text-anchor="middle" font-weight="400">BS</text>
+<rect x="196.0" y="258.5" width="18" height="13" rx="3" fill="#B9AFA3" stroke="#5B534B" stroke-width="1.2"/><circle cx="202.0" cy="271.5" r="2.5" fill="#5B534B"/><circle cx="208.0" cy="271.5" r="2.5" fill="#5B534B"/>
+<rect x="204.5" y="201.9" width="18" height="13" rx="3" fill="#F6E3D8" stroke="#8C3B1B" stroke-width="1.2"/><circle cx="210.5" cy="214.9" r="2.5" fill="#8C3B1B"/><circle cx="216.5" cy="214.9" r="2.5" fill="#8C3B1B"/>
+<rect x="159.2" y="298.1" width="18" height="13" rx="3" fill="#B9AFA3" stroke="#5B534B" stroke-width="1.2"/><circle cx="165.2" cy="311.1" r="2.5" fill="#5B534B"/><circle cx="171.2" cy="311.1" r="2.5" fill="#5B534B"/>
+<circle cx="168.2" cy="304.6" r="15.2" fill="none" stroke="#5B534B" stroke-width="1"/>
+<text x="201.5" y="198.4" font-size="10.5" fill="#8C3B1B" text-anchor="end" font-weight="400">MC2 departs for A</text>
+<text x="168.2" y="326.6" font-size="10" fill="#7A6F64" text-anchor="middle" font-weight="400">charging</text>
+<text x="217.0" y="269.0" font-size="10" fill="#7A6F64" text-anchor="start" font-weight="400">idle</text>
+<text x="289.9" y="295.9" font-size="12" fill="#4A5528" text-anchor="middle" font-weight="700">A</text>
+<text x="259.8" y="263.3" font-size="12" fill="#8C3B1B" text-anchor="start" font-weight="700">B</text>
+<text x="36.0" y="407.0" font-size="10" fill="#7A6F64" text-anchor="start" font-weight="400">200 × 200 m field · Mean-Shift clusters, R = 10 m · a charger parks at a cluster centre</text>
+<rect x="404" y="66" width="332" height="352" rx="6" fill="#FBF6EE" stroke="#E3D9CA"/>
+<text x="416.0" y="88.0" font-size="13" fill="#3F3833" text-anchor="start" font-weight="700">(b) Detour decision at departure</text>
+<text x="416.0" y="104.0" font-size="11.5" fill="#7A6F64" text-anchor="start" font-weight="400">Fig. 2 of the paper, schematic, not to scale</text>
+<polygon points="435.9,168.1 675.1,118.7 688.9,185.6 449.7,235.0" fill="#E8EAD6" opacity=".8" stroke="#6B7A3A" stroke-width=".7" stroke-dasharray="4 3"/>
+<path d="M507.8 153.9L521.3 219.5" stroke="#6B7A3A" stroke-width="1" marker-start="url(#at)" marker-end="url(#at)"/>
+<text x="505.9" y="142.9" font-size="11" fill="#4A5528" text-anchor="middle" font-weight="400">2 d_f R</text>
+<path d="M442.8 201.5L669.0 154.9" stroke="#5B534B" stroke-width="1.8" marker-end="url(#am)"/>
+<text x="591.1" y="190.2" font-size="11" fill="#5B534B" text-anchor="middle" font-weight="400">direct  (a = 0)</text>
+<path d="M442.8 201.5L549.1 142.7L669.0 154.9" fill="none" stroke="#C0562B" stroke-width="1.8" stroke-dasharray="5 3.5" marker-end="url(#aa)"/>
+<text x="511.1" y="127.4" font-size="11" fill="#8C3B1B" text-anchor="middle" font-weight="400">detour  (a = i)</text>
+<circle cx="682.0" cy="152.2" r="11.4" fill="#E8EAD6" stroke="#6B7A3A" stroke-width="1.2" stroke-dasharray="3 2.5"/>
+<circle cx="677.3" cy="149.9" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="0.9"/>
+<circle cx="685.4" cy="147.8" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="0.9"/>
+<circle cx="682.8" cy="157.1" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="0.9"/>
+<circle cx="680.1" cy="152.9" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="0.9"/>
+<circle cx="549.1" cy="142.7" r="11.4" fill="#F6E3D8" stroke="#C0562B" stroke-width="1.2" stroke-dasharray="3 2.5"/>
+<circle cx="544.4" cy="140.4" r="2.6" fill="#D9774A" stroke="#8C3B1B" stroke-width="0.9"/>
+<circle cx="552.5" cy="138.3" r="2.6" fill="#D9774A" stroke="#8C3B1B" stroke-width="0.9"/>
+<circle cx="549.9" cy="147.6" r="2.6" fill="#D9774A" stroke="#8C3B1B" stroke-width="0.9"/>
+<circle cx="547.2" cy="143.4" r="2.6" fill="#D9774A" stroke="#8C3B1B" stroke-width="0.9"/>
+<circle cx="609.9" cy="220.5" r="11.4" fill="#F3EEE6" stroke="#B8AB9B" stroke-width="1.2" stroke-dasharray="3 2.5"/>
+<circle cx="605.1" cy="218.3" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="0.9"/>
+<circle cx="613.3" cy="216.2" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="0.9"/>
+<circle cx="610.6" cy="225.5" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="0.9"/>
+<circle cx="608.0" cy="221.3" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="0.9"/>
+<text x="697.2" y="150.5" font-size="11.5" fill="#4A5528" text-anchor="start" font-weight="700">target A</text>
+<text x="564.3" y="142.9" font-size="11.5" fill="#8C3B1B" text-anchor="start" font-weight="700">candidate B</text>
+<text x="564.3" y="157.2" font-size="10.5" fill="#8C3B1B" text-anchor="start" font-weight="400">SoC_min,B &lt; θ_B</text>
+<text x="625.1" y="216.6" font-size="10.5" fill="#7A6F64" text-anchor="start" font-weight="400">outside corridor:</text>
+<text x="625.1" y="229.6" font-size="10.5" fill="#7A6F64" text-anchor="start" font-weight="400">not a candidate</text>
+<rect x="433.8" y="195.0" width="18" height="13" rx="3" fill="#B9AFA3" stroke="#5B534B" stroke-width="1.2"/><circle cx="439.8" cy="208.0" r="2.5" fill="#5B534B"/><circle cx="445.8" cy="208.0" r="2.5" fill="#5B534B"/>
+<text x="442.8" y="223.5" font-size="10.5" fill="#7A6F64" text-anchor="middle" font-weight="400">MC</text>
+<text x="418.0" y="280.0" font-size="11.5" fill="#8C3B1B" text-anchor="start" font-weight="700">Corridor</text>
+<text x="418.0" y="295.0" font-size="11.5" fill="#7A6F64" text-anchor="start" font-weight="400">half-width d_f·R around the direct path (d_f = 3, R = 10 m);</text>
+<text x="418.0" y="310.0" font-size="11.5" fill="#7A6F64" text-anchor="start" font-weight="400">clusters outside it are never candidates, however urgent.</text>
+<text x="418.0" y="325.0" font-size="11.5" fill="#8C3B1B" text-anchor="start" font-weight="700">Candidate</text>
+<text x="418.0" y="340.0" font-size="11.5" fill="#7A6F64" text-anchor="start" font-weight="400">a cluster inside the corridor whose lowest SoC is below its</text>
+<text x="418.0" y="355.0" font-size="11.5" fill="#7A6F64" text-anchor="start" font-weight="400">own threshold θ; at most K = 5 are offered to the agent.</text>
+<text x="418.0" y="370.0" font-size="11.5" fill="#8C3B1B" text-anchor="start" font-weight="700">Two learned agents</text>
+<text x="418.0" y="385.0" font-size="11.5" fill="#7A6F64" text-anchor="start" font-weight="400">a threshold agent resets θ per cluster every 60 s; a route agent</text>
+<text x="418.0" y="400.0" font-size="11.5" fill="#7A6F64" text-anchor="start" font-weight="400">decides once, at departure: a = 0 direct or a = i detour.</text>
+<circle cx="30.0" cy="438.0" r="3.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<text x="44.0" y="442.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">sensor</text>
+<path d="M104.8 438h13" stroke="#A39584" stroke-width="1"/>
+<text x="124.8" y="442.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">multi-hop link</text>
+<circle cx="246.0" cy="438" r="6.5" fill="none" stroke="#B8AB9B" stroke-width="1" stroke-dasharray="3 2.5"/>
+<text x="260.0" y="442.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">cluster (R = 10 m)</text>
+<circle cx="408.4" cy="438.0" r="4.2" fill="#D9774A" stroke="#8C3B1B" stroke-width="1.3"/>
+<text x="422.4" y="442.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">candidate cluster</text>
+<rect x="557.0" y="430.5" width="16" height="13" rx="3" fill="#B9AFA3" stroke="#5B534B" stroke-width="1.2"/><circle cx="563.0" cy="443.5" r="2.5" fill="#5B534B"/><circle cx="567.0" cy="443.5" r="2.5" fill="#5B534B"/>
+<text x="578.0" y="442.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">charger</text>
+<rect x="645.6" y="433" width="13" height="10" fill="#E8EAD6"/>
+<text x="665.6" y="442.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">corridor</text>
+<path d="M24 456h13" stroke="#5B534B" stroke-width="1.8"/>
+<text x="44.0" y="460.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">direct</text>
+<path d="M104.8 456h13" stroke="#C0562B" stroke-width="2" stroke-dasharray="4 3"/>
+<text x="124.8" y="460.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">detour</text>
+<text x="24.0" y="488.0" font-size="12" fill="#7A6F64" text-anchor="start" font-weight="400">(a) uses the geometry of Fig. 1 of the paper, (b) the coordinates of its Fig. 2; both restyled for the site.</text>
 </svg>

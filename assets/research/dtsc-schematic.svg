@@ -1,15 +1,220 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" role="img" aria-labelledby="title desc">
-  <title id="title">DTSC dual-tier sector charging schematic</title>
-  <desc id="desc">A consumption-balanced angular sector with an inner charger that returns to base and an outer charger that is resupplied at a rendezvous.</desc>
-  <defs><marker id="blue" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8Z" fill="#0d6179"/></marker><marker id="orange" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8Z" fill="#b46a2d"/></marker><style>text{font-family:system-ui,-apple-system,Segoe UI,sans-serif;fill:#17222b}.small{font-size:13px;fill:#58656f}.label{font-size:15px;font-weight:650}.tiny{font-size:12px;fill:#58656f}.sensor{fill:#fff;stroke:#64727a;stroke-width:2}.inner{fill:#e4f0f3;stroke:#0d6179;stroke-width:2}.outer{fill:#f8eadb;stroke:#b46a2d;stroke-width:2}.routei{fill:none;stroke:#0d6179;stroke-width:3}.routeo{fill:none;stroke:#b46a2d;stroke-width:3}</style></defs>
-  <rect width="1000" height="560" fill="#fff"/><rect x="24" y="22" width="952" height="490" rx="6" fill="#fbfcfb" stroke="#d4d9d8"/>
-  <text x="52" y="58" class="label">DTSC: one consumption-balanced sector, two cooperating tiers</text><text x="52" y="80" class="small">The partition follows energy demand; only the inner charger visits the base station.</text>
-  <path d="M142 423 L760 124 A710 710 0 0 1 869 443 Z" class="outer"/><path d="M142 423 L475 262 A380 380 0 0 1 534 432 Z" class="inner"/>
-  <path d="M142 423 L760 124" fill="none" stroke="#9ea9ad" stroke-width="1.5"/><path d="M142 423 L869 443" fill="none" stroke="#9ea9ad" stroke-width="1.5"/>
-  <circle cx="142" cy="423" r="17" fill="#17222b"/><path d="M132 423 L142 401 L152 423" fill="none" stroke="#fff" stroke-width="2.5"/><text x="81" y="456" class="small">base station</text>
-  <g><circle cx="330" cy="350" r="7" class="sensor"/><circle cx="370" cy="390" r="7" class="sensor"/><circle cx="422" cy="328" r="7" class="sensor"/><circle cx="470" cy="400" r="7" class="sensor"/><circle cx="560" cy="287" r="7" class="sensor"/><circle cx="637" cy="250" r="7" class="sensor"/><circle cx="710" cy="330" r="7" class="sensor"/><circle cx="770" cy="389" r="7" class="sensor"/><circle cx="827" cy="330" r="7" class="sensor"/></g>
-  <path d="M142 423 C245 397 282 320 364 334 C423 345 440 397 501 413 L142 423" class="routei" marker-end="url(#blue)"/><text x="229" y="301" class="label" fill="#0d6179">inner charger</text><text x="233" y="321" class="tiny">departs from and returns to base</text>
-  <path d="M537 292 C625 210 744 223 816 319 C849 363 799 419 700 403" class="routeo" marker-end="url(#orange)"/><text x="638" y="183" class="label" fill="#b46a2d">outer charger</text><text x="638" y="203" class="tiny">serves outer tier; does not return to base</text>
-  <path d="M518 271 l12 12 l-12 12 l-12-12z" fill="#fff" stroke="#17222b" stroke-width="2"/><text x="468" y="250" class="label">rendezvous</text><text x="438" y="316" class="tiny">energy handoff</text><path d="M498 285 L465 335" stroke="#0d6179" stroke-width="2" marker-end="url(#blue)"/><path d="M538 285 L575 305" stroke="#b46a2d" stroke-width="2" marker-end="url(#orange)"/>
-  <line x1="54" y1="474" x2="80" y2="474" class="routei" marker-end="url(#blue)"/><text x="90" y="479" class="small">inner tier: base replenishment</text><line x1="350" y1="474" x2="376" y2="474" class="routeo" marker-end="url(#orange)"/><text x="387" y="479" class="small">outer tier: rendezvous replenishment</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 500" width="760" height="500" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+<title id="t">DTSC dual-tier sector charging</title><desc id="d">One angular sector of a field around a base station, split into an inner and an outer service tier. The inner charger tours its anchors and returns to the base station; the outer charger tours the outer anchors and closes at a rendezvous point on the tier boundary, where the inner charger refuels it by contact. An inset shows the whole field cut into consumption-balanced sectors.</desc>
+<rect width="760" height="500" fill="#FDFBF7"/>
+<defs><marker id="am" markerWidth="8" markerHeight="8" refX="6.5" refY="3" orient="auto"><path d="M0 0L7 3L0 6z" fill="#5B534B"/></marker><marker id="aa" markerWidth="8" markerHeight="8" refX="6.5" refY="3" orient="auto"><path d="M0 0L7 3L0 6z" fill="#C0562B"/></marker><marker id="at" markerWidth="8" markerHeight="8" refX="6.5" refY="3" orient="auto"><path d="M0 0L7 3L0 6z" fill="#6B7A3A"/></marker><marker id="as" markerWidth="8" markerHeight="8" refX="6.5" refY="3" orient="auto"><path d="M0 0L7 3L0 6z" fill="#B7791F"/></marker><marker id="ai" markerWidth="8" markerHeight="8" refX="3.5" refY="3" orient="auto-start-reverse"><path d="M0 0L7 3L0 6z" fill="#3F3833"/></marker></defs>
+<text x="24" y="30" font-size="12.5" font-weight="700" fill="#C0562B" letter-spacing="1.6">DTSC · DUAL-TIER SECTOR COOPERATION</text>
+<text x="24" y="53" font-size="18" font-weight="700" fill="#3F3833">Within one sector, the outer charger never returns to base</text>
+<rect x="24" y="66" width="712" height="352" rx="6" fill="#FBF6EE" stroke="#E3D9CA"/>
+<path d="M98.0 392.0L267.3 323.6A182.6 182.6 0 0 0 166.4 222.7Z" fill="#E8EAD6" opacity=".7"/>
+<path d="M267.3 323.6L400.3 269.9A326.0 326.0 0 0 0 220.1 89.7L166.4 222.7A182.6 182.6 0 0 1 267.3 323.6Z" fill="#F6E3D8" opacity=".55"/>
+<path d="M98.0 392.0L400.3 269.9" stroke="#3F3833" stroke-width=".9"/>
+<path d="M98.0 392.0L220.1 89.7" stroke="#3F3833" stroke-width=".9"/>
+<path d="M400.3 269.9A326.0 326.0 0 0 0 220.1 89.7" fill="none" stroke="#3F3833" stroke-width=".9"/>
+<path d="M267.3 323.6A182.6 182.6 0 0 0 166.4 222.7" fill="none" stroke="#3F3833" stroke-width="1.1" stroke-dasharray="5 4"/>
+<text x="280.3" y="333.9" font-size="10.5" fill="#3F3833" text-anchor="start" font-weight="400">inner / outer partition</text>
+<circle cx="312.2" cy="245.9" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="261.1" cy="129.4" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="272.9" cy="163.3" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="191.3" cy="262.1" r="2.9" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.8"/>
+<circle cx="214.0" cy="250.9" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="225.6" cy="114.8" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="138.9" cy="360.3" r="2.9" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.8"/>
+<circle cx="322.7" cy="199.2" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="344.8" cy="236.4" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="301.2" cy="294.3" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="252.5" cy="293.0" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="178.5" cy="235.0" r="2.9" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.8"/>
+<circle cx="183.6" cy="245.9" r="2.9" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.8"/>
+<circle cx="291.8" cy="287.5" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="250.0" cy="214.3" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="273.6" cy="221.8" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="311.1" cy="146.2" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="277.8" cy="163.2" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="305.5" cy="237.4" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="235.9" cy="98.5" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="211.6" cy="284.1" r="2.9" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.8"/>
+<circle cx="185.2" cy="286.2" r="2.9" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.8"/>
+<circle cx="260.2" cy="193.0" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="167.9" cy="349.3" r="2.9" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.8"/>
+<circle cx="166.6" cy="358.3" r="2.9" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.8"/>
+<circle cx="275.7" cy="236.5" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="222.7" cy="204.6" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="261.0" cy="125.4" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="247.6" cy="179.2" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="305.6" cy="279.9" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="204.2" cy="185.6" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="186.6" cy="250.4" r="2.9" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.8"/>
+<circle cx="125.9" cy="341.2" r="2.9" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.8"/>
+<circle cx="201.4" cy="284.9" r="2.9" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.8"/>
+<circle cx="222.2" cy="149.6" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="234.9" cy="326.7" r="2.9" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.8"/>
+<circle cx="280.9" cy="307.5" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="143.7" cy="371.3" r="2.9" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.8"/>
+<circle cx="343.7" cy="224.0" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="209.6" cy="316.2" r="2.9" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.8"/>
+<circle cx="245.6" cy="301.3" r="2.9" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.8"/>
+<circle cx="303.4" cy="164.8" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="310.7" cy="292.0" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="295.7" cy="165.5" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="323.6" cy="258.4" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="268.9" cy="168.0" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="196.3" cy="347.4" r="2.9" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.8"/>
+<circle cx="291.5" cy="246.9" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="201.4" cy="181.5" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="307.2" cy="170.4" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="202.5" cy="222.2" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="255.0" cy="192.5" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="156.8" cy="322.5" r="2.9" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.8"/>
+<circle cx="273.3" cy="283.6" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="224.1" cy="251.0" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="218.6" cy="335.2" r="2.9" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.8"/>
+<circle cx="254.6" cy="141.7" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="184.9" cy="207.4" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="258.2" cy="112.0" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="325.2" cy="282.7" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="299.0" cy="234.6" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="306.7" cy="233.8" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="335.1" cy="264.1" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="183.0" cy="289.0" r="2.9" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.8"/>
+<circle cx="214.8" cy="206.7" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="229.4" cy="293.0" r="2.9" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.8"/>
+<circle cx="201.0" cy="209.2" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="156.9" cy="298.6" r="2.9" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.8"/>
+<circle cx="378.5" cy="236.2" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="184.5" cy="261.5" r="2.9" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.8"/>
+<circle cx="226.3" cy="156.1" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="253.0" cy="295.2" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="301.6" cy="164.6" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="265.9" cy="184.9" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="179.4" cy="296.0" r="2.9" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.8"/>
+<circle cx="364.0" cy="252.7" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="293.5" cy="142.4" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="294.6" cy="152.0" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="226.0" cy="179.7" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="167.6" cy="280.5" r="2.9" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.8"/>
+<circle cx="216.0" cy="301.2" r="2.9" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.8"/>
+<circle cx="280.3" cy="136.0" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="217.2" cy="178.8" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="166.1" cy="264.4" r="2.9" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.8"/>
+<circle cx="362.6" cy="236.5" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="336.7" cy="282.5" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="252.4" cy="198.0" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="269.0" cy="282.1" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="240.5" cy="235.1" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="169.8" cy="244.0" r="2.9" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.8"/>
+<circle cx="157.9" cy="342.0" r="2.9" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.8"/>
+<circle cx="350.2" cy="219.5" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="262.6" cy="237.9" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="248.5" cy="201.0" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="265.0" cy="303.8" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="315.6" cy="210.3" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="158.1" cy="358.3" r="2.9" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.8"/>
+<circle cx="222.5" cy="232.7" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="135.2" cy="329.5" r="2.9" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.8"/>
+<circle cx="192.0" cy="314.0" r="2.9" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.8"/>
+<circle cx="345.5" cy="188.1" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="280.3" cy="198.6" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="279.8" cy="275.1" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="295.0" cy="258.4" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="339.4" cy="205.5" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="240.1" cy="258.7" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="322.7" cy="277.5" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="249.9" cy="167.8" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="229.4" cy="244.1" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="288.8" cy="251.4" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="353.2" cy="262.9" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="270.6" cy="133.1" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="214.7" cy="326.9" r="2.9" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.8"/>
+<circle cx="373.1" cy="238.1" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="143.1" cy="366.9" r="2.9" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.8"/>
+<circle cx="350.9" cy="263.2" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="234.0" cy="131.1" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="202.7" cy="318.5" r="2.9" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.8"/>
+<circle cx="269.6" cy="264.2" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="248.6" cy="138.3" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="136.5" cy="345.9" r="2.9" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.8"/>
+<circle cx="319.5" cy="256.0" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="313.6" cy="196.5" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="210.4" cy="184.8" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="312.7" cy="214.1" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="192.1" cy="262.2" r="2.9" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.8"/>
+<circle cx="231.7" cy="321.9" r="2.9" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.8"/>
+<circle cx="213.3" cy="228.7" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="176.8" cy="271.2" r="2.9" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.8"/>
+<circle cx="198.6" cy="224.5" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="291.4" cy="140.1" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="290.0" cy="234.0" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="271.8" cy="306.3" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="219.5" cy="267.0" r="2.9" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.8"/>
+<circle cx="275.6" cy="127.9" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="285.2" cy="276.4" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="362.6" cy="207.1" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="260.5" cy="220.5" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="231.9" cy="195.9" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="242.8" cy="119.0" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="344.8" cy="255.7" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="311.5" cy="261.6" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="212.7" cy="209.2" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="289.6" cy="153.5" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="221.2" cy="219.3" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="223.7" cy="104.9" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="140.4" cy="305.5" r="2.9" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.8"/>
+<circle cx="207.1" cy="204.9" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="227.4" cy="193.3" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<circle cx="339.9" cy="185.5" r="2.9" fill="#EBB49C" stroke="#C0562B" stroke-width="0.8"/>
+<path d="M98.0 392.0L154.5 359.4L214.0 307.7L227.1 262.9L173.0 262.1L144.6 317.4L98.0 392.0" fill="none" stroke="#6B7A3A" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M227.1 262.9L297.6 281.4L317.0 201.7L238.2 149.2L193.7 195.7L227.1 262.9" fill="none" stroke="#C0562B" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="154.5" cy="359.4" r="4.2" fill="#fff" stroke="#6B7A3A" stroke-width="1.6"/>
+<circle cx="214.0" cy="307.7" r="4.2" fill="#fff" stroke="#6B7A3A" stroke-width="1.6"/>
+<circle cx="173.0" cy="262.1" r="4.2" fill="#fff" stroke="#6B7A3A" stroke-width="1.6"/>
+<circle cx="144.6" cy="317.4" r="4.2" fill="#fff" stroke="#6B7A3A" stroke-width="1.6"/>
+<rect x="293.6" y="277.4" width="8" height="8" fill="#fff" stroke="#C0562B" stroke-width="1.6"/>
+<rect x="313.0" y="197.7" width="8" height="8" fill="#fff" stroke="#C0562B" stroke-width="1.6"/>
+<rect x="234.2" y="145.2" width="8" height="8" fill="#fff" stroke="#C0562B" stroke-width="1.6"/>
+<rect x="189.7" y="191.7" width="8" height="8" fill="#fff" stroke="#C0562B" stroke-width="1.6"/>
+<path d="M227.1 254.9l8 8-8 8-8-8z" fill="#fff" stroke="#3F3833" stroke-width="1.6"/>
+<text x="241.1" y="268.9" font-size="11" fill="#3F3833" text-anchor="start" font-weight="700">rendezvous point</text>
+<text x="241.1" y="281.9" font-size="10" fill="#3F3833" text-anchor="start" font-weight="400">contact energy transfer</text>
+<rect x="188.3" y="339.0" width="24" height="13" rx="3" fill="#E8EAD6" stroke="#6B7A3A" stroke-width="1.2"/><circle cx="194.3" cy="352.0" r="2.5" fill="#6B7A3A"/><circle cx="206.3" cy="352.0" r="2.5" fill="#6B7A3A"/>
+<text x="214.3" y="363.5" font-size="10.5" fill="#4A5528" text-anchor="middle" font-weight="700">inner charger</text>
+<rect x="283.6" y="158.9" width="24" height="13" rx="3" fill="#F6E3D8" stroke="#8C3B1B" stroke-width="1.2"/><circle cx="289.6" cy="171.9" r="2.5" fill="#8C3B1B"/><circle cx="301.6" cy="171.9" r="2.5" fill="#8C3B1B"/>
+<text x="309.6" y="151.4" font-size="10.5" fill="#8C3B1B" text-anchor="middle" font-weight="700">outer charger</text>
+<rect x="92.5" y="386.5" width="11" height="11" rx="1.5" fill="#3F3833"/>
+<path d="M92.0 385.0L98.0 378.0L104.0 385.0" fill="none" stroke="#3F3833" stroke-width="1.4"/>
+<text x="98.0" y="410.0" font-size="11" fill="#7A6F64" text-anchor="middle" font-weight="400">BS</text>
+<text x="452.0" y="100.0" font-size="12.5" fill="#8C3B1B" text-anchor="start" font-weight="700">What the pairing removes</text>
+<text x="452.0" y="117.5" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">the outer charger’s long return leg to base:</text>
+<text x="452.0" y="135.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">its partner refuels it at the rendezvous point,</text>
+<text x="452.0" y="152.5" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">so that leg is paid once per pair, not per charger.</text>
+<text x="452.0" y="170.0" font-size="12.5" fill="#8C3B1B" text-anchor="start" font-weight="700">Balanced cycles</text>
+<text x="452.0" y="187.5" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">a fixed-point iteration equalises the two tours;</text>
+<text x="452.0" y="205.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">leftover slack becomes extra stay time at the</text>
+<text x="452.0" y="222.5" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">hungriest anchors instead of waiting.</text>
+<circle cx="618" cy="316" r="50" fill="#fff" stroke="#E3D9CA"/>
+<path d="M618.0 316.0L664.4 297.3" stroke="#B8AB9B" stroke-width=".9"/>
+<path d="M618.0 316.0L636.7 269.6" stroke="#B8AB9B" stroke-width=".9"/>
+<path d="M618.0 316.0L587.2 276.6" stroke="#B8AB9B" stroke-width=".9"/>
+<path d="M618.0 316.0L568.0 317.7" stroke="#B8AB9B" stroke-width=".9"/>
+<path d="M618.0 316.0L591.5 358.4" stroke="#B8AB9B" stroke-width=".9"/>
+<path d="M618.0 316.0L644.5 358.4" stroke="#B8AB9B" stroke-width=".9"/>
+<path d="M618 316L664.4 297.3A50 50 0 0 0 636.7 269.6Z" fill="#F6E3D8" stroke="#C0562B" stroke-width="1"/>
+<rect x="615" y="313" width="6" height="6" fill="#3F3833"/>
+<text x="618.0" y="381.0" font-size="10.5" fill="#7A6F64" text-anchor="middle" font-weight="400">the field is cut into sectors of</text>
+<text x="618.0" y="393.0" font-size="10.5" fill="#7A6F64" text-anchor="middle" font-weight="400">balanced consumption (ECR);</text>
+<text x="618.0" y="405.0" font-size="10.5" fill="#7A6F64" text-anchor="middle" font-weight="400">one charger pair per sector</text>
+<circle cx="30.0" cy="438.0" r="3.6" fill="#CDD3AE" stroke="#6B7A3A" stroke-width="0.9"/>
+<text x="44.0" y="442.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">inner-tier sensor</text>
+<circle cx="185.6" cy="438.0" r="3.6" fill="#EBB49C" stroke="#C0562B" stroke-width="0.9"/>
+<text x="199.6" y="442.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">outer-tier sensor</text>
+<circle cx="341.2" cy="438" r="4" fill="#fff" stroke="#6B7A3A" stroke-width="1.5"/>
+<text x="355.2" y="442.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">inner anchor</text>
+<rect x="458.79999999999995" y="434" width="8" height="8" fill="#fff" stroke="#C0562B" stroke-width="1.5"/>
+<text x="476.8" y="442.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">outer anchor</text>
+<path d="M584.4 432l6 6-6 6-6-6z" fill="#fff" stroke="#3F3833" stroke-width="1.4"/>
+<text x="598.4" y="442.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">rendezvous point</text>
+<path d="M24 456h13" stroke="#6B7A3A" stroke-width="2"/>
+<text x="44.0" y="460.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">inner charger: BS → anchors → RP → BS</text>
+<path d="M315.6 456h13" stroke="#C0562B" stroke-width="2"/>
+<text x="335.6" y="460.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">outer charger: closed tour, never reaches BS</text>
+<text x="24.0" y="488.0" font-size="12" fill="#7A6F64" text-anchor="start" font-weight="400">Same geometry as Fig. 1 of the paper, restyled; anchors are greedy disk-cover stops that serve several sensors each.</text>
 </svg>

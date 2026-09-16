@@ -1,16 +1,226 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" role="img" aria-labelledby="title desc">
-  <title id="title">CHASE ground and aerial vehicle scheduling schematic</title>
-  <desc id="desc">A technical snapshot showing a ground vehicle on an EDF anchor leg, corridor requests, and a carried UAV that serves an outer request then meets the vehicle ahead.</desc>
-  <defs><marker id="navy" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8Z" fill="#0d6179"/></marker><marker id="orange" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8Z" fill="#b46a2d"/></marker><style>text{font-family:system-ui,-apple-system,Segoe UI,sans-serif;fill:#17222b}.small{font-size:13px;fill:#58656f}.label{font-size:15px;font-weight:650}.tiny{font-size:12px;fill:#58656f}.sensor{fill:#fff;stroke:#64727a;stroke-width:2}.urgent{fill:#f7ddd4;stroke:#b44a3c;stroke-width:2}.route{fill:none;stroke:#0d6179;stroke-width:3}.flight{fill:none;stroke:#b46a2d;stroke-width:3;stroke-dasharray:7 5}</style></defs>
-  <rect width="1000" height="560" fill="#fff"/><rect x="24" y="22" width="952" height="490" rx="6" fill="#fbfcfb" stroke="#d4d9d8"/>
-  <text x="52" y="58" class="label">CHASE: one ground-vehicle leg with an aerial side mission</text><text x="52" y="80" class="small">A fixed inner area is handled near base; outer service combines an EDF anchor, corridor detours, and forward rendezvous.</text>
-  <circle cx="162" cy="299" r="95" fill="#e4f0f3" stroke="#0d6179" stroke-width="2"/><text x="96" y="196" class="label" fill="#0d6179">fixed inner area</text><text x="98" y="217" class="tiny">base-station UAV service</text><circle cx="162" cy="299" r="17" fill="#17222b"/><path d="M152 299 L162 277 L172 299" fill="none" stroke="#fff" stroke-width="2.5"/>
-  <g><circle cx="118" cy="260" r="6" class="sensor"/><circle cx="198" cy="243" r="6" class="sensor"/><circle cx="210" cy="335" r="6" class="sensor"/><circle cx="119" cy="347" r="6" class="sensor"/></g>
-  <path d="M270 350 C396 306 543 237 748 176" stroke="#0d6179" stroke-width="76" stroke-opacity=".10" fill="none" stroke-linecap="round"/><path d="M270 350 C396 306 543 237 748 176" class="route" marker-end="url(#navy)"/><text x="390" y="273" class="tiny">narrow bypass corridor</text>
-  <circle cx="390" cy="300" r="7" class="sensor"/><circle cx="500" cy="258" r="7" class="sensor"/><circle cx="594" cy="230" r="7" class="sensor"/><text x="459" y="326" class="tiny">pending requests considered along this leg</text>
-  <circle cx="760" cy="172" r="10" class="urgent"/><text x="776" y="165" class="label">EDF anchor</text><text x="778" y="186" class="tiny">most urgent ground target</text>
-  <g><rect x="315" y="324" width="38" height="22" rx="5" fill="#0d6179" stroke="#fff" stroke-width="3"/><circle cx="323" cy="350" r="4" fill="#17222b"/><circle cx="345" cy="350" r="4" fill="#17222b"/></g><text x="290" y="375" class="tiny">WCV + carried UAV</text>
-  <path d="M335 318 Q445 135 579 158 Q651 170 685 260 Q704 302 676 326" class="flight" marker-end="url(#orange)"/><g transform="translate(456 144)"><path d="M0 7 L9 0 L18 7 L9 14Z" fill="#b46a2d"/><path d="M-4 7 H22 M9 -4 V18" stroke="#b46a2d" stroke-width="2"/></g><circle cx="582" cy="159" r="10" class="urgent"/><text x="522" y="126" class="label" fill="#b46a2d">outer request</text><text x="475" y="282" class="tiny">UAV launch → service → rejoin</text>
-  <path d="M670 314 l12 12 l-12 12 l-12-12z" fill="#fff" stroke="#17222b" stroke-width="2"/><text x="684" y="334" class="label">forward rendezvous</text><text x="684" y="354" class="tiny">predicted point on WCV route</text>
-  <line x1="54" y1="474" x2="80" y2="474" class="route" marker-end="url(#navy)"/><text x="90" y="479" class="small">ground vehicle anchor leg</text><line x1="330" y1="474" x2="356" y2="474" class="flight" marker-end="url(#orange)"/><text x="367" y="479" class="small">UAV side mission</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 500" width="760" height="500" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+<title id="t">CHASE ground and aerial charging</title><desc id="d">A circular field around a base station is cut by azimuth into load-balanced clusters, one ground charging vehicle each. An inner disk is served by UAVs anchored at the base. One vehicle leg from its position to the most urgent request is shown with its corridor: only pending nodes inside the corridor, ahead of the vehicle and nearer than the anchor are folded in. A carried UAV is released to a peripheral node and recovered at a rendezvous on the vehicle path.</desc>
+<rect width="760" height="500" fill="#FDFBF7"/>
+<defs><marker id="am" markerWidth="8" markerHeight="8" refX="6.5" refY="3" orient="auto"><path d="M0 0L7 3L0 6z" fill="#5B534B"/></marker><marker id="aa" markerWidth="8" markerHeight="8" refX="6.5" refY="3" orient="auto"><path d="M0 0L7 3L0 6z" fill="#C0562B"/></marker><marker id="at" markerWidth="8" markerHeight="8" refX="6.5" refY="3" orient="auto"><path d="M0 0L7 3L0 6z" fill="#6B7A3A"/></marker><marker id="as" markerWidth="8" markerHeight="8" refX="6.5" refY="3" orient="auto"><path d="M0 0L7 3L0 6z" fill="#B7791F"/></marker><marker id="ai" markerWidth="8" markerHeight="8" refX="3.5" refY="3" orient="auto-start-reverse"><path d="M0 0L7 3L0 6z" fill="#3F3833"/></marker></defs>
+<text x="24" y="30" font-size="12.5" font-weight="700" fill="#C0562B" letter-spacing="1.6">CHASE · GROUND + AERIAL CHARGERS</text>
+<text x="24" y="53" font-size="18" font-weight="700" fill="#3F3833">A corridor around each ground leg, and UAVs for the periphery</text>
+<rect x="24" y="66" width="712" height="352" rx="6" fill="#FBF6EE" stroke="#E3D9CA"/>
+<circle cx="214" cy="246.0" r="160.0" fill="#FFFDF9" stroke="#3F3833" stroke-width=".8"/>
+<circle cx="214" cy="246.0" r="54.400000000000006" fill="#E8EAD6" opacity=".8" stroke="#6B7A3A" stroke-width=".9"/>
+<path d="M214.0 246.0L368.5 204.6" stroke="#B8AB9B" stroke-width=".9" stroke-dasharray="4 3"/>
+<path d="M214.0 246.0L91.4 143.2" stroke="#B8AB9B" stroke-width=".9" stroke-dasharray="4 3"/>
+<path d="M214.0 246.0L172.6 400.5" stroke="#B8AB9B" stroke-width=".9" stroke-dasharray="4 3"/>
+<circle cx="157.4" cy="302.7" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="328.7" cy="332.5" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="235.1" cy="375.9" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="235.0" cy="112.2" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="174.6" cy="125.3" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="324.5" cy="358.5" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="306.2" cy="242.9" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="257.7" cy="337.0" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="235.0" cy="314.9" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="178.7" cy="238.8" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="189.9" cy="176.2" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="186.8" cy="95.3" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="209.5" cy="99.4" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="163.5" cy="227.9" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="89.7" cy="249.6" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="109.4" cy="282.5" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="337.3" cy="249.5" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="248.4" cy="371.3" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="150.2" cy="307.5" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="370.5" cy="256.9" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="237.6" cy="139.4" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="281.8" cy="138.8" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="117.1" cy="328.8" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="280.0" cy="227.3" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="252.8" cy="237.2" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="111.8" cy="255.6" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="339.3" cy="317.8" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="160.4" cy="250.8" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="216.2" cy="102.7" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="363.5" cy="234.9" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="255.0" cy="137.8" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="159.5" cy="389.1" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="224.6" cy="213.1" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="195.0" cy="225.6" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="236.7" cy="245.5" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="252.8" cy="316.5" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="259.1" cy="180.2" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="206.4" cy="177.1" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="302.0" cy="328.3" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="182.5" cy="247.9" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="172.4" cy="296.2" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="207.2" cy="377.6" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="233.5" cy="233.4" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="59.2" cy="253.6" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="295.1" cy="330.9" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="121.2" cy="135.7" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="108.1" cy="321.1" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="330.5" cy="200.5" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="160.8" cy="200.6" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="160.3" cy="137.3" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="232.7" cy="220.2" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="272.0" cy="377.0" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="100.1" cy="138.3" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="360.5" cy="265.7" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="183.6" cy="265.3" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="140.4" cy="303.1" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="155.6" cy="314.8" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="190.0" cy="294.1" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="287.9" cy="143.2" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="81.0" cy="193.7" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="219.9" cy="156.6" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="92.4" cy="160.5" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="331.3" cy="164.4" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="270.3" cy="257.5" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="244.6" cy="109.3" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="143.0" cy="378.5" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="191.9" cy="178.5" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="299.2" cy="332.2" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="147.0" cy="354.9" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="298.6" cy="154.1" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="241.9" cy="287.0" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="336.4" cy="290.1" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="318.7" cy="318.2" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="82.5" cy="307.6" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="301.6" cy="132.4" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="246.4" cy="160.4" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="336.2" cy="305.5" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="73.0" cy="294.1" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="277.9" cy="109.0" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="262.0" cy="288.8" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="197.5" cy="266.3" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="161.2" cy="194.0" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="112.2" cy="182.2" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="224.3" cy="90.8" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="271.3" cy="302.4" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="108.1" cy="224.2" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="90.1" cy="284.2" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="191.7" cy="200.3" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="214.8" cy="344.7" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="271.8" cy="236.8" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="123.6" cy="152.3" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="357.2" cy="218.4" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="284.4" cy="177.5" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="309.5" cy="266.0" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="149.6" cy="344.3" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="147.2" cy="213.7" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="135.3" cy="257.8" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="278.1" cy="311.9" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="153.6" cy="156.2" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="175.5" cy="270.6" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="139.1" cy="150.0" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="127.0" cy="256.5" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="247.7" cy="198.9" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="267.4" cy="269.7" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="271.8" cy="244.1" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="214.9" cy="291.6" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="270.5" cy="387.4" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="268.2" cy="183.1" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="136.7" cy="202.8" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="272.2" cy="379.9" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="339.5" cy="234.7" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="166.1" cy="296.0" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="242.2" cy="347.7" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="64.1" cy="258.3" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="199.2" cy="342.9" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="229.8" cy="198.8" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="125.0" cy="142.6" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="274.5" cy="118.7" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="131.5" cy="126.3" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="338.5" cy="288.1" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="126.7" cy="289.3" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="192.3" cy="211.8" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="198.5" cy="131.8" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="347.0" cy="287.3" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="148.3" cy="222.1" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="295.9" cy="256.1" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="97.4" cy="257.4" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="76.8" cy="264.4" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="334.6" cy="337.7" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="211.4" cy="302.7" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="153.9" cy="279.3" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="85.9" cy="182.4" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="306.6" cy="335.0" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="98.5" cy="174.4" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="355.3" cy="320.5" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="354.8" cy="181.1" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="81.1" cy="183.4" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="74.0" cy="263.3" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="309.8" cy="276.5" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<circle cx="127.8" cy="268.8" r="4.2" fill="#D9774A" stroke="#8C3B1B" stroke-width="1.1"/>
+<circle cx="61.1" cy="243.0" r="4.2" fill="#D9774A" stroke="#8C3B1B" stroke-width="1.1"/>
+<circle cx="218.3" cy="290.4" r="4.2" fill="#D9774A" stroke="#8C3B1B" stroke-width="1.1"/>
+<circle cx="157.8" cy="372.9" r="4.2" fill="#D9774A" stroke="#8C3B1B" stroke-width="1.1"/>
+<circle cx="284.5" cy="346.7" r="4.2" fill="#D9774A" stroke="#8C3B1B" stroke-width="1.1"/>
+<circle cx="97.1" cy="300.7" r="4.2" fill="#D9774A" stroke="#8C3B1B" stroke-width="1.1"/>
+<circle cx="331.6" cy="321.5" r="4.2" fill="#D9774A" stroke="#8C3B1B" stroke-width="1.1"/>
+<circle cx="119.9" cy="345.2" r="4.2" fill="#D9774A" stroke="#8C3B1B" stroke-width="1.1"/>
+<circle cx="77.3" cy="216.5" r="4.2" fill="#D9774A" stroke="#8C3B1B" stroke-width="1.1"/>
+<circle cx="309.7" cy="222.7" r="4.2" fill="#D9774A" stroke="#8C3B1B" stroke-width="1.1"/>
+<circle cx="233.9" cy="112.6" r="4.2" fill="#D9774A" stroke="#8C3B1B" stroke-width="1.1"/>
+<circle cx="233.9" cy="112.6" r="8" fill="none" stroke="#8A5A12" stroke-width="1.4"/>
+<circle cx="331.6" cy="321.5" r="8" fill="none" stroke="#8A5A12" stroke-width="1.4"/>
+<path d="M179.6 272.5L187.6 280.5M179.6 280.5L187.6 272.5" stroke="#8C3B1B" stroke-width="1.3"/>
+<text x="190.6" y="280.5" font-size="9" fill="#8C3B1B" text-anchor="start" font-weight="400">centroid</text>
+<polygon points="214.0,238.0 216.1,243.1 221.6,243.5 217.4,247.1 218.7,252.5 214.0,249.6 209.3,252.5 210.6,247.1 206.4,243.5 211.9,243.1" fill="#3F3833" stroke="#3F3833" stroke-width="1.1"/>
+<text x="224.0" y="238.0" font-size="10.5" fill="#3F3833" text-anchor="start" font-weight="700">BS</text>
+<g stroke="#6B7A3A" stroke-width="1.6" fill="none"><path d="M177.0 267.0L191.0 277.0M177.0 277.0L191.0 267.0"/><circle cx="177.0" cy="267.0" r="3"/><circle cx="191.0" cy="267.0" r="3"/><circle cx="177.0" cy="277.0" r="3"/><circle cx="191.0" cy="277.0" r="3"/></g><rect x="180.5" y="269.5" width="7" height="5" rx="1.5" fill="#6B7A3A"/>
+<polygon points="148.7,268.8 185.7,361.8 129.9,384.0 92.9,291.0" fill="#F6E3D8" opacity=".7"/>
+<path d="M120.8 279.9L157.8 372.9" stroke="#5B534B" stroke-width="1.7" marker-end="url(#am)"/>
+<path d="M120.8 279.9L97.1 300.7L119.9 345.2L157.8 372.9" fill="none" stroke="#C0562B" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="137.8" y="272.8" font-size="9" fill="#7A6F64" text-anchor="start" font-weight="400">behind p</text>
+<text x="71.1" y="247.0" font-size="9" fill="#7A6F64" text-anchor="start" font-weight="400">outside corridor</text>
+<circle cx="97.1" cy="300.7" r="7" fill="none" stroke="#C0562B" stroke-width="1.2"/>
+<text x="107.1" y="304.7" font-size="9" fill="#8C3B1B" text-anchor="start" font-weight="400">folded in</text>
+<circle cx="119.9" cy="345.2" r="7" fill="none" stroke="#C0562B" stroke-width="1.2"/>
+<polygon points="157.8,364.4 160.1,369.8 165.9,370.3 161.5,374.1 162.8,379.8 157.8,376.8 152.8,379.8 154.2,374.1 149.7,370.3 155.6,369.8" fill="#C0562B" stroke="#8C3B1B" stroke-width="1.1"/>
+<text x="214.0" y="183.6" font-size="9.5" fill="#4A5528" text-anchor="middle" font-weight="400">inner zone (D_max/2): BS-anchored UAVs</text>
+<text x="169.8" y="364.9" font-size="10.5" fill="#8C3B1B" text-anchor="start" font-weight="700">EDF anchor s*</text>
+<text x="169.8" y="377.9" font-size="9.5" fill="#7A6F64" text-anchor="start" font-weight="400">most urgent request</text>
+<rect x="229.7" y="143.7" width="20" height="13" rx="3" fill="#B9AFA3" stroke="#5B534B" stroke-width="1.2"/><circle cx="235.7" cy="156.7" r="2.5" fill="#5B534B"/><circle cx="243.7" cy="156.7" r="2.5" fill="#5B534B"/>
+<text x="253.7" y="154.2" font-size="9.5" fill="#3F3833" text-anchor="start" font-weight="400">w1</text>
+<rect x="110.8" y="273.4" width="20" height="13" rx="3" fill="#F6E3D8" stroke="#8C3B1B" stroke-width="1.2"/><circle cx="116.8" cy="286.4" r="2.5" fill="#8C3B1B"/><circle cx="124.8" cy="286.4" r="2.5" fill="#8C3B1B"/>
+<text x="134.8" y="283.9" font-size="9.5" fill="#3F3833" text-anchor="start" font-weight="400">w2</text>
+<rect x="274.1" y="309.6" width="20" height="13" rx="3" fill="#B9AFA3" stroke="#5B534B" stroke-width="1.2"/><circle cx="280.1" cy="322.6" r="2.5" fill="#5B534B"/><circle cx="288.1" cy="322.6" r="2.5" fill="#5B534B"/>
+<text x="298.1" y="320.1" font-size="9.5" fill="#3F3833" text-anchor="start" font-weight="400">w3</text>
+<path d="M284.1 316.1L309.7 222.7" stroke="#5B534B" stroke-width="1.2" stroke-dasharray="1 3" marker-end="url(#am)"/>
+<path d="M288.8 299.3L331.6 321.5L302.1 250.7" fill="none" stroke="#B7791F" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#as)"/>
+<path d="M302.1 244.2l6.5 6.5-6.5 6.5-6.5-6.5z" fill="#fff" stroke="#3F3833" stroke-width="1.3"/>
+<g stroke="#B7791F" stroke-width="1.6" fill="none"><path d="M300.2 315.1L314.2 325.1M300.2 325.1L314.2 315.1"/><circle cx="300.2" cy="315.1" r="3"/><circle cx="314.2" cy="315.1" r="3"/><circle cx="300.2" cy="325.1" r="3"/><circle cx="314.2" cy="325.1" r="3"/></g><rect x="303.7" y="317.6" width="7" height="5" rx="1.5" fill="#B7791F"/>
+<text x="312.1" y="262.7" font-size="9" fill="#3F3833" text-anchor="start" font-weight="400">rendezvous</text>
+<text x="410.0" y="100.0" font-size="12.5" fill="#8C3B1B" text-anchor="start" font-weight="700">Corridor rule, inside every leg</text>
+<text x="410.0" y="117.5" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">anchor the most urgent node (EDF), then fold in</text>
+<text x="410.0" y="135.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">only the pending nodes that are</text>
+<text x="410.0" y="152.5" font-size="12.5" fill="#8C3B1B" text-anchor="start" font-weight="400">① inside the corridor  (half-width c·ℓ)</text>
+<text x="410.0" y="170.0" font-size="12.5" fill="#8C3B1B" text-anchor="start" font-weight="400">② ahead of the vehicle</text>
+<text x="410.0" y="187.5" font-size="12.5" fill="#8C3B1B" text-anchor="start" font-weight="400">③ nearer than the anchor</text>
+<text x="410.0" y="205.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">so deadline-first and nearest-first act together.</text>
+<text x="410.0" y="222.5" font-size="12.5" fill="#8C3B1B" text-anchor="start" font-weight="700">Carried UAVs</text>
+<text x="410.0" y="240.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">take the most peripheral requests and rejoin</text>
+<text x="410.0" y="257.5" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">the moving vehicle at a predicted rendezvous.</text>
+<text x="410.0" y="275.0" font-size="12.5" fill="#8C3B1B" text-anchor="start" font-weight="700">Inner zone</text>
+<text x="410.0" y="292.5" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">served by UAVs anchored at the base station.</text>
+<circle cx="30.0" cy="438.0" r="3.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
+<text x="44.0" y="442.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">sensor</text>
+<circle cx="110.8" cy="438.0" r="4.2" fill="#D9774A" stroke="#8C3B1B" stroke-width="1.3"/>
+<text x="124.8" y="442.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">pending request</text>
+<circle cx="252.8" cy="438" r="6.5" fill="none" stroke="#8A5A12" stroke-width="1.4"/>
+<text x="266.8" y="442.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">most peripheral → carried UAV</text>
+<rect x="483.0" y="430.5" width="16" height="13" rx="3" fill="#B9AFA3" stroke="#5B534B" stroke-width="1.2"/><circle cx="489.0" cy="443.5" r="2.5" fill="#5B534B"/><circle cx="493.0" cy="443.5" r="2.5" fill="#5B534B"/>
+<text x="504.0" y="442.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">WCV</text>
+<polygon points="550.4,431.5 552.1,435.6 556.6,436.0 553.2,438.9 554.2,443.3 550.4,440.9 546.6,443.3 547.6,438.9 544.2,436.0 548.7,435.6" fill="#C0562B" stroke="#8C3B1B" stroke-width="1.1"/>
+<text x="564.4" y="442.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">EDF anchor</text>
+<rect x="652.4" y="433" width="13" height="10" fill="#F6E3D8"/>
+<text x="672.4" y="442.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">corridor</text>
+<path d="M24 456h13" stroke="#C0562B" stroke-width="2" stroke-dasharray="4 3"/>
+<text x="44.0" y="460.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">leg with bypass</text>
+<g stroke="#B7791F" stroke-width="1.6" fill="none"><path d="M166.0 451.0L180.0 461.0M166.0 461.0L180.0 451.0"/><circle cx="166.0" cy="451.0" r="3"/><circle cx="180.0" cy="451.0" r="3"/><circle cx="166.0" cy="461.0" r="3"/><circle cx="180.0" cy="461.0" r="3"/></g><rect x="169.5" y="453.5" width="7" height="5" rx="1.5" fill="#B7791F"/>
+<text x="186.0" y="460.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">UAV</text>
+<path d="M226.4 456h13" stroke="#B7791F" stroke-width="2" stroke-dasharray="4 3"/>
+<text x="246.4" y="460.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">UAV flight</text>
+<path d="M340.4 450l6 6-6 6-6-6z" fill="#fff" stroke="#3F3833" stroke-width="1.4"/>
+<text x="354.4" y="460.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">rendezvous</text>
+<text x="24.0" y="488.0" font-size="12" fill="#7A6F64" text-anchor="start" font-weight="400">Same geometry as Fig. 1 of the paper, with the Fig. 2 corridor rule and a Fig. 3 UAV mission drawn on one leg; restyled for the site.</text>
 </svg>
