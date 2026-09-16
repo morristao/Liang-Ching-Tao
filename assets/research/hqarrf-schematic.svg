@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" role="img" aria-labelledby="title desc">
+  <title id="title">HQARRF multi-charger scheduling schematic</title>
+  <desc id="desc">A technical top-down scheduling snapshot showing local attraction to at-risk sensors, charger separation, and a soft high-risk area that redirects one charger.</desc>
+  <defs>
+    <marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8Z" fill="#0d6179"/></marker>
+    <marker id="r" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8Z" fill="#b44a3c"/></marker>
+    <style>text{font-family:system-ui,-apple-system,Segoe UI,sans-serif;fill:#17222b}.small{font-size:13px;fill:#58656f}.label{font-size:15px;font-weight:650}.tiny{font-size:12px;fill:#58656f}.sensor{fill:#fff;stroke:#64727a;stroke-width:2}.critical{fill:#f7ddd4;stroke:#b44a3c;stroke-width:2}.charger{fill:#0d6179;stroke:#fff;stroke-width:3}.route{fill:none;stroke:#0d6179;stroke-width:2.5;stroke-dasharray:7 6}.call{fill:none;stroke:#b44a3c;stroke-width:2.5;stroke-dasharray:6 5}</style>
+  </defs>
+  <rect width="1000" height="560" fill="#fff"/>
+  <rect x="24" y="22" width="952" height="490" rx="6" fill="#fbfcfb" stroke="#d4d9d8"/>
+  <text x="52" y="58" class="label">HQARRF scheduling snapshot</text><text x="52" y="80" class="small">Local candidate ranking is coupled with zone-level risk monitoring; zones are adaptive overlays, not hard partitions.</text>
+  <path d="M530 125 C680 70 905 135 904 275 C904 393 743 442 602 392 C522 363 498 214 530 125Z" fill="#f7ddd4" opacity=".55" stroke="#b44a3c" stroke-width="2" stroke-dasharray="8 7"/>
+  <text x="700" y="125" class="label" fill="#b44a3c">adaptive high-risk area</text><text x="702" y="146" class="tiny">aggregate deadline risk rises here</text>
+  <g>
+    <rect x="70" y="225" width="46" height="30" rx="4" fill="#17222b"/><path d="M82 225 L92 203 L102 225" fill="none" stroke="#17222b" stroke-width="3"/><text x="64" y="281" class="small">base station</text>
+  </g>
+  <g>
+    <circle cx="220" cy="180" r="7" class="sensor"/><circle cx="256" cy="145" r="7" class="sensor"/><circle cx="286" cy="202" r="7" class="sensor"/><circle cx="235" cy="223" r="7" class="sensor"/>
+    <circle cx="402" cy="160" r="7" class="sensor"/><circle cx="440" cy="194" r="7" class="sensor"/><circle cx="388" cy="217" r="7" class="sensor"/>
+    <circle cx="667" cy="210" r="7" class="critical"/><circle cx="708" cy="180" r="7" class="critical"/><circle cx="748" cy="224" r="7" class="critical"/><circle cx="689" cy="255" r="7" class="critical"/><circle cx="769" cy="268" r="7" class="critical"/>
+    <circle cx="830" cy="345" r="7" class="sensor"/><circle cx="860" cy="300" r="7" class="sensor"/><circle cx="889" cy="360" r="7" class="sensor"/>
+  </g>
+  <g><rect x="312" y="308" width="31" height="19" rx="5" class="charger"/><circle cx="319" cy="331" r="4" fill="#17222b"/><circle cx="337" cy="331" r="4" fill="#17222b"/><text x="300" y="353" class="tiny">MC-1</text></g>
+  <g><rect x="470" y="245" width="31" height="19" rx="5" class="charger"/><circle cx="477" cy="268" r="4" fill="#17222b"/><circle cx="495" cy="268" r="4" fill="#17222b"/><text x="458" y="286" class="tiny">MC-2</text></g>
+  <g><rect x="560" y="343" width="31" height="19" rx="5" class="charger"/><circle cx="567" cy="366" r="4" fill="#17222b"/><circle cx="585" cy="366" r="4" fill="#17222b"/><text x="548" y="384" class="tiny">MC-3</text></g>
+  <path d="M328 307 C300 269 274 245 245 231" class="route" marker-end="url(#a)"/><text x="159" y="320" class="tiny">local attraction</text>
+  <path d="M485 243 C540 215 586 206 650 212" class="call" marker-end="url(#r)"/><text x="510" y="191" class="tiny">gated redirection</text>
+  <path d="M500 267 C527 305 538 332 560 346" class="call" marker-end="url(#r)"/><path d="M561 343 C535 330 523 305 501 268" class="call" marker-end="url(#r)"/><text x="410" y="345" class="tiny">crowding repulsion</text>
+  <circle cx="713" cy="220" r="55" fill="none" stroke="#0d6179" stroke-width="1.8" stroke-dasharray="4 4"/><text x="694" y="294" class="tiny">local service set</text>
+  <line x1="54" y1="474" x2="75" y2="474" stroke="#0d6179" stroke-width="3" marker-end="url(#a)"/><text x="84" y="479" class="small">ARR-F local choice</text>
+  <line x1="260" y1="474" x2="281" y2="474" stroke="#b44a3c" stroke-width="3" marker-end="url(#r)"/><text x="290" y="479" class="small">risk-aware intervention / separation</text>
+  <circle cx="610" cy="474" r="6" class="critical"/><text x="624" y="479" class="small">urgent sensor</text>
+</svg>
