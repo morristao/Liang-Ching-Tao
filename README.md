@@ -1,6 +1,6 @@
 # Personal website
 
-A dependency-free static academic site. It deliberately omits unverified contact links, publication records, figures, results, and project links rather than exposing unfinished placeholders.
+A dependency-free static academic site for Fall 2027 CS PhD applications.
 
 ## Preview locally
 
@@ -16,8 +16,7 @@ Open <http://localhost:8000>. The site includes a copy of `academic_cv.pdf` so i
 
 1. Update factual information in `../source_of_truth.md` first.
 2. Update CV, publication statuses, and this site together.
-3. Put public research figures in an `assets/` subdirectory and add descriptive `<img>` elements with useful `alt` text only after permission and factual accuracy are confirmed.
-4. Test on a narrow browser width before publishing.
+3. Test on a narrow browser width before publishing.
 
 ## Deploy
 
@@ -29,4 +28,4 @@ Push this directory’s contents (not the parent directory) to the branch or rep
 
 Import the repository, set the root directory to `phd_application_materials/personal_website`, and deploy as a static site. No build command is necessary.
 
-Do not deploy until all email, link, publication, and status placeholders have been replaced or intentionally removed.
+Review factual accuracy, links, and publication statuses before publishing.
