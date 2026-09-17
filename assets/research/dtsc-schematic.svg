@@ -173,8 +173,8 @@
 <rect x="234.2" y="145.2" width="8" height="8" fill="#fff" stroke="#C0562B" stroke-width="1.6"/>
 <rect x="189.7" y="191.7" width="8" height="8" fill="#fff" stroke="#C0562B" stroke-width="1.6"/>
 <path d="M227.1 254.9l8 8-8 8-8-8z" fill="#fff" stroke="#3F3833" stroke-width="1.6"/>
-<text x="241.1" y="268.9" font-size="11" fill="#3F3833" text-anchor="start" font-weight="700">rendezvous point</text>
-<text x="241.1" y="281.9" font-size="10" fill="#3F3833" text-anchor="start" font-weight="400">contact energy transfer</text>
+<text x="249.1" y="228.9" font-size="11" fill="#3F3833" text-anchor="start" font-weight="700">rendezvous point</text>
+<text x="249.1" y="241.9" font-size="10" fill="#3F3833" text-anchor="start" font-weight="400">contact energy transfer</text>
 <rect x="188.3" y="339.0" width="24" height="13" rx="3" fill="#E8EAD6" stroke="#6B7A3A" stroke-width="1.2"/><circle cx="194.3" cy="352.0" r="2.5" fill="#6B7A3A"/><circle cx="206.3" cy="352.0" r="2.5" fill="#6B7A3A"/>
 <text x="214.3" y="363.5" font-size="10.5" fill="#4A5528" text-anchor="middle" font-weight="700">inner charger</text>
 <rect x="283.6" y="158.9" width="24" height="13" rx="3" fill="#F6E3D8" stroke="#8C3B1B" stroke-width="1.2"/><circle cx="289.6" cy="171.9" r="2.5" fill="#8C3B1B"/><circle cx="301.6" cy="171.9" r="2.5" fill="#8C3B1B"/>

@@ -174,17 +174,17 @@
 <text x="217.0" y="269.0" font-size="10" fill="#7A6F64" text-anchor="start" font-weight="400">idle</text>
 <text x="289.9" y="295.9" font-size="12" fill="#4A5528" text-anchor="middle" font-weight="700">A</text>
 <text x="259.8" y="263.3" font-size="12" fill="#8C3B1B" text-anchor="start" font-weight="700">B</text>
-<text x="36.0" y="407.0" font-size="10" fill="#7A6F64" text-anchor="start" font-weight="400">200 × 200 m field · Mean-Shift clusters, R = 10 m · a charger parks at a cluster centre</text>
+<text x="36.0" y="407.0" font-size="10" fill="#7A6F64" text-anchor="start" font-weight="400">200 × 200 m field · Mean-Shift clusters, R = 10 m</text>
 <rect x="404" y="66" width="332" height="352" rx="6" fill="#FBF6EE" stroke="#E3D9CA"/>
 <text x="416.0" y="88.0" font-size="13" fill="#3F3833" text-anchor="start" font-weight="700">(b) Detour decision at departure</text>
 <text x="416.0" y="104.0" font-size="11.5" fill="#7A6F64" text-anchor="start" font-weight="400">Fig. 2 of the paper, schematic, not to scale</text>
 <polygon points="435.9,168.1 675.1,118.7 688.9,185.6 449.7,235.0" fill="#E8EAD6" opacity=".8" stroke="#6B7A3A" stroke-width=".7" stroke-dasharray="4 3"/>
-<path d="M507.8 153.9L521.3 219.5" stroke="#6B7A3A" stroke-width="1" marker-start="url(#at)" marker-end="url(#at)"/>
-<text x="505.9" y="142.9" font-size="11" fill="#4A5528" text-anchor="middle" font-weight="400">2 d_f R</text>
+<path d="M555.6 144.1L569.2 209.7" stroke="#6B7A3A" stroke-width="1" marker-start="url(#at)" marker-end="url(#at)"/>
+<text x="571.0" y="229.7" font-size="11" fill="#4A5528" text-anchor="middle" font-weight="400">2 d_f R</text>
 <path d="M442.8 201.5L669.0 154.9" stroke="#5B534B" stroke-width="1.8" marker-end="url(#am)"/>
 <text x="591.1" y="190.2" font-size="11" fill="#5B534B" text-anchor="middle" font-weight="400">direct  (a = 0)</text>
 <path d="M442.8 201.5L549.1 142.7L669.0 154.9" fill="none" stroke="#C0562B" stroke-width="1.8" stroke-dasharray="5 3.5" marker-end="url(#aa)"/>
-<text x="511.1" y="127.4" font-size="11" fill="#8C3B1B" text-anchor="middle" font-weight="400">detour  (a = i)</text>
+<text x="484.6" y="152.2" font-size="11" fill="#8C3B1B" text-anchor="middle" font-weight="400">detour  (a = i)</text>
 <circle cx="682.0" cy="152.2" r="11.4" fill="#E8EAD6" stroke="#6B7A3A" stroke-width="1.2" stroke-dasharray="3 2.5"/>
 <circle cx="677.3" cy="149.9" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="0.9"/>
 <circle cx="685.4" cy="147.8" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="0.9"/>
@@ -201,21 +201,21 @@
 <circle cx="610.6" cy="225.5" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="0.9"/>
 <circle cx="608.0" cy="221.3" r="2.6" fill="#EAE0D2" stroke="#A39584" stroke-width="0.9"/>
 <text x="697.2" y="150.5" font-size="11.5" fill="#4A5528" text-anchor="start" font-weight="700">target A</text>
-<text x="564.3" y="142.9" font-size="11.5" fill="#8C3B1B" text-anchor="start" font-weight="700">candidate B</text>
-<text x="564.3" y="157.2" font-size="10.5" fill="#8C3B1B" text-anchor="start" font-weight="400">SoC_min,B &lt; θ_B</text>
+<text x="549.1" y="118.9" font-size="11.5" fill="#8C3B1B" text-anchor="middle" font-weight="700">candidate B</text>
+<text x="549.1" y="129.5" font-size="10.5" fill="#8C3B1B" text-anchor="middle" font-weight="400">SoC_min,B &lt; θ_B</text>
 <text x="625.1" y="216.6" font-size="10.5" fill="#7A6F64" text-anchor="start" font-weight="400">outside corridor:</text>
 <text x="625.1" y="229.6" font-size="10.5" fill="#7A6F64" text-anchor="start" font-weight="400">not a candidate</text>
 <rect x="433.8" y="195.0" width="18" height="13" rx="3" fill="#B9AFA3" stroke="#5B534B" stroke-width="1.2"/><circle cx="439.8" cy="208.0" r="2.5" fill="#5B534B"/><circle cx="445.8" cy="208.0" r="2.5" fill="#5B534B"/>
 <text x="442.8" y="223.5" font-size="10.5" fill="#7A6F64" text-anchor="middle" font-weight="400">MC</text>
 <text x="418.0" y="280.0" font-size="11.5" fill="#8C3B1B" text-anchor="start" font-weight="700">Corridor</text>
-<text x="418.0" y="295.0" font-size="11.5" fill="#7A6F64" text-anchor="start" font-weight="400">half-width d_f·R around the direct path (d_f = 3, R = 10 m);</text>
-<text x="418.0" y="310.0" font-size="11.5" fill="#7A6F64" text-anchor="start" font-weight="400">clusters outside it are never candidates, however urgent.</text>
+<text x="418.0" y="295.0" font-size="11.5" fill="#7A6F64" text-anchor="start" font-weight="400">half-width d_f·R around the direct path (d_f = 3);</text>
+<text x="418.0" y="310.0" font-size="11.5" fill="#7A6F64" text-anchor="start" font-weight="400">clusters outside it are never candidates.</text>
 <text x="418.0" y="325.0" font-size="11.5" fill="#8C3B1B" text-anchor="start" font-weight="700">Candidate</text>
-<text x="418.0" y="340.0" font-size="11.5" fill="#7A6F64" text-anchor="start" font-weight="400">a cluster inside the corridor whose lowest SoC is below its</text>
-<text x="418.0" y="355.0" font-size="11.5" fill="#7A6F64" text-anchor="start" font-weight="400">own threshold θ; at most K = 5 are offered to the agent.</text>
+<text x="418.0" y="340.0" font-size="11.5" fill="#7A6F64" text-anchor="start" font-weight="400">a cluster inside the corridor whose lowest SoC is</text>
+<text x="418.0" y="355.0" font-size="11.5" fill="#7A6F64" text-anchor="start" font-weight="400">below its own θ; at most K = 5 are offered.</text>
 <text x="418.0" y="370.0" font-size="11.5" fill="#8C3B1B" text-anchor="start" font-weight="700">Two learned agents</text>
-<text x="418.0" y="385.0" font-size="11.5" fill="#7A6F64" text-anchor="start" font-weight="400">a threshold agent resets θ per cluster every 60 s; a route agent</text>
-<text x="418.0" y="400.0" font-size="11.5" fill="#7A6F64" text-anchor="start" font-weight="400">decides once, at departure: a = 0 direct or a = i detour.</text>
+<text x="418.0" y="385.0" font-size="11.5" fill="#7A6F64" text-anchor="start" font-weight="400">a threshold agent resets θ per cluster every 60 s;</text>
+<text x="418.0" y="400.0" font-size="11.5" fill="#7A6F64" text-anchor="start" font-weight="400">a route agent decides once, at departure.</text>
 <circle cx="30.0" cy="438.0" r="3.6" fill="#EAE0D2" stroke="#A39584" stroke-width="1"/>
 <text x="44.0" y="442.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">sensor</text>
 <path d="M104.8 438h13" stroke="#A39584" stroke-width="1"/>

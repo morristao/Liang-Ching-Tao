@@ -163,10 +163,9 @@
 <circle cx="233.9" cy="112.6" r="8" fill="none" stroke="#8A5A12" stroke-width="1.4"/>
 <circle cx="331.6" cy="321.5" r="8" fill="none" stroke="#8A5A12" stroke-width="1.4"/>
 <path d="M179.6 272.5L187.6 280.5M179.6 280.5L187.6 272.5" stroke="#8C3B1B" stroke-width="1.3"/>
-<text x="190.6" y="280.5" font-size="9" fill="#8C3B1B" text-anchor="start" font-weight="400">centroid</text>
 <polygon points="214.0,238.0 216.1,243.1 221.6,243.5 217.4,247.1 218.7,252.5 214.0,249.6 209.3,252.5 210.6,247.1 206.4,243.5 211.9,243.1" fill="#3F3833" stroke="#3F3833" stroke-width="1.1"/>
 <text x="224.0" y="238.0" font-size="10.5" fill="#3F3833" text-anchor="start" font-weight="700">BS</text>
-<g stroke="#6B7A3A" stroke-width="1.6" fill="none"><path d="M177.0 267.0L191.0 277.0M177.0 277.0L191.0 267.0"/><circle cx="177.0" cy="267.0" r="3"/><circle cx="191.0" cy="267.0" r="3"/><circle cx="177.0" cy="277.0" r="3"/><circle cx="191.0" cy="277.0" r="3"/></g><rect x="180.5" y="269.5" width="7" height="5" rx="1.5" fill="#6B7A3A"/>
+<g stroke="#6B7A3A" stroke-width="1.6" fill="none"><path d="M237.0 219.0L251.0 229.0M237.0 229.0L251.0 219.0"/><circle cx="237.0" cy="219.0" r="3"/><circle cx="251.0" cy="219.0" r="3"/><circle cx="237.0" cy="229.0" r="3"/><circle cx="251.0" cy="229.0" r="3"/></g><rect x="240.5" y="221.5" width="7" height="5" rx="1.5" fill="#6B7A3A"/>
 <polygon points="148.7,268.8 185.7,361.8 129.9,384.0 92.9,291.0" fill="#F6E3D8" opacity=".7"/>
 <path d="M120.8 279.9L157.8 372.9" stroke="#5B534B" stroke-width="1.7" marker-end="url(#am)"/>
 <path d="M120.8 279.9L97.1 300.7L119.9 345.2L157.8 372.9" fill="none" stroke="#C0562B" stroke-width="1.5" stroke-dasharray="4 3"/>
@@ -206,21 +205,23 @@
 <text x="44.0" y="442.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">sensor</text>
 <circle cx="110.8" cy="438.0" r="4.2" fill="#D9774A" stroke="#8C3B1B" stroke-width="1.3"/>
 <text x="124.8" y="442.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">pending request</text>
-<circle cx="252.8" cy="438" r="6.5" fill="none" stroke="#8A5A12" stroke-width="1.4"/>
-<text x="266.8" y="442.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">most peripheral → carried UAV</text>
-<rect x="483.0" y="430.5" width="16" height="13" rx="3" fill="#B9AFA3" stroke="#5B534B" stroke-width="1.2"/><circle cx="489.0" cy="443.5" r="2.5" fill="#5B534B"/><circle cx="493.0" cy="443.5" r="2.5" fill="#5B534B"/>
-<text x="504.0" y="442.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">WCV</text>
-<polygon points="550.4,431.5 552.1,435.6 556.6,436.0 553.2,438.9 554.2,443.3 550.4,440.9 546.6,443.3 547.6,438.9 544.2,436.0 548.7,435.6" fill="#C0562B" stroke="#8C3B1B" stroke-width="1.1"/>
-<text x="564.4" y="442.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">EDF anchor</text>
-<rect x="652.4" y="433" width="13" height="10" fill="#F6E3D8"/>
-<text x="672.4" y="442.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">corridor</text>
-<path d="M24 456h13" stroke="#C0562B" stroke-width="2" stroke-dasharray="4 3"/>
-<text x="44.0" y="460.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">leg with bypass</text>
-<g stroke="#B7791F" stroke-width="1.6" fill="none"><path d="M166.0 451.0L180.0 461.0M166.0 461.0L180.0 451.0"/><circle cx="166.0" cy="451.0" r="3"/><circle cx="180.0" cy="451.0" r="3"/><circle cx="166.0" cy="461.0" r="3"/><circle cx="180.0" cy="461.0" r="3"/></g><rect x="169.5" y="453.5" width="7" height="5" rx="1.5" fill="#B7791F"/>
-<text x="186.0" y="460.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">UAV</text>
-<path d="M226.4 456h13" stroke="#B7791F" stroke-width="2" stroke-dasharray="4 3"/>
-<text x="246.4" y="460.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">UAV flight</text>
-<path d="M340.4 450l6 6-6 6-6-6z" fill="#fff" stroke="#3F3833" stroke-width="1.4"/>
-<text x="354.4" y="460.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">rendezvous</text>
+<path d="M249.3 434.5L256.3 441.5M249.3 441.5L256.3 434.5" stroke="#8C3B1B" stroke-width="1.3"/>
+<text x="266.8" y="442.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">centroid of the pending set</text>
+<circle cx="476.4" cy="438" r="6.5" fill="none" stroke="#8A5A12" stroke-width="1.4"/>
+<text x="490.4" y="442.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">most peripheral → carried UAV</text>
+<rect x="23.0" y="448.5" width="16" height="13" rx="3" fill="#B9AFA3" stroke="#5B534B" stroke-width="1.2"/><circle cx="29.0" cy="461.5" r="2.5" fill="#5B534B"/><circle cx="33.0" cy="461.5" r="2.5" fill="#5B534B"/>
+<text x="44.0" y="460.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">WCV</text>
+<polygon points="90.4,449.5 92.1,453.6 96.6,454.0 93.2,456.9 94.2,461.3 90.4,458.9 86.6,461.3 87.6,456.9 84.2,454.0 88.7,453.6" fill="#C0562B" stroke="#8C3B1B" stroke-width="1.1"/>
+<text x="104.4" y="460.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">EDF anchor</text>
+<rect x="192.4" y="451" width="13" height="10" fill="#F6E3D8"/>
+<text x="212.4" y="460.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">corridor</text>
+<path d="M286.8 456h13" stroke="#C0562B" stroke-width="2" stroke-dasharray="4 3"/>
+<text x="306.8" y="460.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">leg with bypass</text>
+<g stroke="#B7791F" stroke-width="1.6" fill="none"><path d="M428.8 451.0L442.8 461.0M428.8 461.0L442.8 451.0"/><circle cx="428.8" cy="451.0" r="3"/><circle cx="442.8" cy="451.0" r="3"/><circle cx="428.8" cy="461.0" r="3"/><circle cx="442.8" cy="461.0" r="3"/></g><rect x="432.3" y="453.5" width="7" height="5" rx="1.5" fill="#B7791F"/>
+<text x="448.8" y="460.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">UAV</text>
+<path d="M489.2 456h13" stroke="#B7791F" stroke-width="2" stroke-dasharray="4 3"/>
+<text x="509.2" y="460.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">UAV flight</text>
+<path d="M603.2 450l6 6-6 6-6-6z" fill="#fff" stroke="#3F3833" stroke-width="1.4"/>
+<text x="617.2" y="460.0" font-size="12.5" fill="#7A6F64" text-anchor="start" font-weight="400">rendezvous</text>
 <text x="24.0" y="488.0" font-size="12" fill="#7A6F64" text-anchor="start" font-weight="400">Same geometry as Fig. 1 of the paper, with the Fig. 2 corridor rule and a Fig. 3 UAV mission drawn on one leg; restyled for the site.</text>
 </svg>

@@ -512,17 +512,17 @@
 <path d="M200.0 235.0L206.0 228.0L212.0 235.0" fill="none" stroke="#3F3833" stroke-width="1.4"/>
 <text x="206.0" y="260.0" font-size="9.5" fill="#7A6F64" text-anchor="middle" font-weight="400">BS</text>
 <rect x="191.4" y="215.7" width="16" height="13" rx="3" fill="#B9AFA3" stroke="#5B534B" stroke-width="1.2"/><circle cx="197.4" cy="228.7" r="2.5" fill="#5B534B"/><circle cx="201.4" cy="228.7" r="2.5" fill="#5B534B"/>
-<text x="210.4" y="219.2" font-size="8.5" fill="#3F3833" text-anchor="start" font-weight="400">MC0</text>
+<text x="199.4" y="210.2" font-size="8.5" fill="#3F3833" text-anchor="middle" font-weight="400">MC0</text>
 <rect x="203.1" y="303.3" width="16" height="13" rx="3" fill="#B9AFA3" stroke="#5B534B" stroke-width="1.2"/><circle cx="209.1" cy="316.3" r="2.5" fill="#5B534B"/><circle cx="213.1" cy="316.3" r="2.5" fill="#5B534B"/>
-<text x="222.1" y="306.8" font-size="8.5" fill="#3F3833" text-anchor="start" font-weight="400">MC1</text>
+<text x="211.1" y="297.8" font-size="8.5" fill="#3F3833" text-anchor="middle" font-weight="400">MC1</text>
 <rect x="263.8" y="267.9" width="16" height="13" rx="3" fill="#F6E3D8" stroke="#8C3B1B" stroke-width="1.2"/><circle cx="269.8" cy="280.9" r="2.5" fill="#8C3B1B"/><circle cx="273.8" cy="280.9" r="2.5" fill="#8C3B1B"/>
-<text x="282.8" y="271.4" font-size="8.5" fill="#8C3B1B" text-anchor="start" font-weight="400">MC2</text>
+<text x="271.8" y="262.4" font-size="8.5" fill="#8C3B1B" text-anchor="middle" font-weight="400">MC2</text>
 <rect x="182.8" y="145.4" width="16" height="13" rx="3" fill="#B9AFA3" stroke="#5B534B" stroke-width="1.2"/><circle cx="188.8" cy="158.4" r="2.5" fill="#5B534B"/><circle cx="192.8" cy="158.4" r="2.5" fill="#5B534B"/>
-<text x="201.8" y="148.9" font-size="8.5" fill="#3F3833" text-anchor="start" font-weight="400">MC3</text>
+<text x="190.8" y="139.9" font-size="8.5" fill="#3F3833" text-anchor="middle" font-weight="400">MC3</text>
 <rect x="121.2" y="232.3" width="16" height="13" rx="3" fill="#B9AFA3" stroke="#5B534B" stroke-width="1.2"/><circle cx="127.2" cy="245.3" r="2.5" fill="#5B534B"/><circle cx="131.2" cy="245.3" r="2.5" fill="#5B534B"/>
-<text x="140.2" y="235.8" font-size="8.5" fill="#3F3833" text-anchor="start" font-weight="400">MC4</text>
+<text x="129.2" y="226.8" font-size="8.5" fill="#3F3833" text-anchor="middle" font-weight="400">MC4</text>
 <rect x="236.7" y="118.6" width="16" height="13" rx="3" fill="#B9AFA3" stroke="#5B534B" stroke-width="1.2"/><circle cx="242.7" cy="131.6" r="2.5" fill="#5B534B"/><circle cx="246.7" cy="131.6" r="2.5" fill="#5B534B"/>
-<text x="255.7" y="122.1" font-size="8.5" fill="#3F3833" text-anchor="start" font-weight="400">MC5</text>
+<text x="244.7" y="113.1" font-size="8.5" fill="#3F3833" text-anchor="middle" font-weight="400">MC5</text>
 <path d="M271.8 268.4Q313.3 193.1 306.8 225.1" fill="none" stroke="#C0562B" stroke-width="1.7" marker-end="url(#aa)"/>
 <text x="308.0" y="174.6" font-size="10.5" fill="#8C3B1B" text-anchor="middle" font-weight="700">under-served zone</text>
 <text x="319.3" y="203.1" font-size="9.5" fill="#8C3B1B" text-anchor="middle" font-weight="700">intervention</text>
