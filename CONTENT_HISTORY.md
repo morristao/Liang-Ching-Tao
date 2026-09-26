@@ -18,6 +18,12 @@ This file records the intent behind substantive public-facing content changes. I
 - **Claims discipline:** LP-BTS is an arXiv preprint; HQARRF is an arXiv preprint and MAMM 2026 poster; MAMM oral/poster items are non-archival presentations; MC&WASN was previously presented; multi-charger work is ongoing.
 - **Wording choice:** describe the long-term agenda through learned models, abstractions, planning, and generalization. Do not make unsupported AGI, world-model, or completed-research claims.
 
+## CV update: 2026-09-27
+
+- **Change:** The academic CV uses the heading `Education & Service` and records the completed 2024 military service in chronological order between the M.S. and B.S. entries.
+- **Wording:** `Military Service — Private, Artillery Battalion, 249th Brigade, R.O.C. Army (Taiwan)`.
+- **Rationale:** The entry closes the education timeline in one factual line without presenting military service as research experience or making unsupported claims about training outcomes.
+
 ## Maintenance rule
 
 For future substantive changes to research positioning, paper status, research results, or the homepage narrative:
