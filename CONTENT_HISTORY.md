@@ -23,7 +23,7 @@ This file records the intent behind substantive public-facing content changes. I
 - **Change:** The academic CV uses the heading `Education & Service` and records the completed 2024 military service in chronological order between the M.S. and B.S. entries.
 - **Wording:** `Military Service — Private, Artillery Battalion, 249th Brigade, R.O.C. Army (Taiwan)`.
 - **Rationale:** The entry closes the education timeline in one factual line without presenting military service as research experience or making unsupported claims about training outcomes.
-- **Layout refinement:** The first page flows naturally from the research summary and education/service chronology through core research, preprints, and the first conference entries; remaining sections continue on page two. Repeated TA duties, an over-detailed LP-BTS training bullet, and redundant conference-preface text were consolidated.
+- **Layout refinement:** The first page flows naturally from the research summary and education/service chronology through core research, preprints, and the first conference entries; remaining sections continue on page two. An over-detailed LP-BTS training bullet and redundant conference-preface text were consolidated; the three distinct TA appointments remain separate.
 
 ## Maintenance rule
 
