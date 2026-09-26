@@ -26,6 +26,7 @@ This file records the intent behind substantive public-facing content changes. I
 - **Layout refinement:** The first page flows naturally from the research summary and education/service chronology through core research, preprints, and the first conference entries; remaining sections continue on page two. An over-detailed LP-BTS training bullet and redundant conference-preface text were consolidated; the three distinct TA appointments remain separate.
 - **Research interests:** The CV identifies a coherent trajectory from learning-guided search and graph-based structured actions to coordinated multi-agent planning, learned dynamics and abstractions, and world-model-based planning and reasoning in general-purpose agents.
 - **Testbed framing:** The ongoing extension is presented as learning-guided multi-agent planning, with multi-charger scheduling explicitly identified as its current structured testbed. Historical paper titles remain unchanged.
+- **Research visuals:** The LP-BTS decision schematic appears in both Selected Research and the corresponding preprint entry so readers can connect the paper directly to its planning pipeline.
 
 ## Maintenance rule
 
