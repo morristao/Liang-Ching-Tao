@@ -28,6 +28,7 @@ This file records the intent behind substantive public-facing content changes. I
 - **Testbed framing:** The ongoing extension is presented as learning-guided multi-agent planning, with multi-charger scheduling explicitly identified as its current structured testbed. Historical paper titles remain unchanged.
 - **Research visuals:** The LP-BTS decision schematic appears in both Selected Research and the corresponding preprint entry so readers can connect the paper directly to its planning pipeline.
 - **Hierarchical routing:** The research trajectory now summarizes HQARRF as strategic reinforcement learning paired with electrostatic-inspired, force-aware local coordination.
+- **Longer-term trajectory:** The final stage now frames learned dynamics, abstractions, and hierarchy as a longer-term agenda for planning and reasoning under uncertainty, explicitly naming learned world models without presenting them as completed work.
 
 ## Maintenance rule
 
