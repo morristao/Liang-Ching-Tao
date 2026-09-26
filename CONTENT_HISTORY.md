@@ -24,6 +24,7 @@ This file records the intent behind substantive public-facing content changes. I
 - **Wording:** `Military Service — Private, Artillery Battalion, 249th Brigade, R.O.C. Army (Taiwan)`.
 - **Rationale:** The entry closes the education timeline in one factual line without presenting military service as research experience or making unsupported claims about training outcomes.
 - **Layout refinement:** The first page flows naturally from the research summary and education/service chronology through core research, preprints, and the first conference entries; remaining sections continue on page two. An over-detailed LP-BTS training bullet and redundant conference-preface text were consolidated; the three distinct TA appointments remain separate.
+- **Research interests:** The CV identifies a coherent trajectory from learning-guided search and graph-based structured actions to coordinated multi-agent planning, learned dynamics and abstractions, and world-model-based planning and reasoning in general-purpose agents.
 
 ## Maintenance rule
 
