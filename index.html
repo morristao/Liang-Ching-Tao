@@ -59,8 +59,8 @@
       <div class="project-index">01</div>
       <div class="project-content">
         <p class="project-type">Ongoing · Sep. 2026–present</p>
-        <h3>Learning-Guided Multi-Charger Planning with Neural-Guided Search</h3>
-        <p>Building directly on LP-BTS, this ongoing extension moves from single-agent search toward coordinated multi-charger planning, where decisions interact through a combinatorial joint action space. It carries forward the same learning-guided planning principle while studying graph-based policy representations, canonical actions, action-space reduction, and neural-guided search for keeping coordinated lookahead tractable.</p>
+        <h3>Learning-Guided Multi-Agent Planning with Neural-Guided Search</h3>
+        <p>Building directly on LP-BTS, this ongoing extension uses multi-charger scheduling as a structured testbed for coordinated multi-agent planning, where agents' decisions interact through a combinatorial joint action space. It carries forward the same learning-guided planning principle while studying graph-based policy representations, canonical actions, action-space reduction, and neural-guided search for keeping coordinated lookahead tractable—algorithmic questions intended to extend to other structured coordination problems.</p>
       </div>
     </article>
 
@@ -83,7 +83,7 @@
       <div class="project-content">
         <p class="project-type">Master’s thesis · arXiv preprint · 2025–2026</p>
         <h3>HQARRF: Hierarchical Q-learning and Force-aware Routing for Multi-Charger Scheduling</h3>
-        <p>HQARRF studies hierarchical decision-making for multi-charger scheduling. A gated Q-learning upper level redirects service toward high-risk, under-served regions, while a force-aware lower-level ranker handles local routing and charging decisions—separating strategic allocation from fast structured action selection.</p>
+        <p>HQARRF uses multi-charger scheduling as a testbed for hierarchical coordination. A gated Q-learning upper level redirects service toward high-risk, under-served regions, while a force-aware lower-level ranker handles local routing and charging decisions—separating strategic allocation from fast structured action selection.</p>
         <figure class="project-visual project-visual-diagram">
           <a href="assets/research/hqarrf-schematic.svg" target="_blank" rel="noopener"><img src="assets/research/hqarrf-schematic.svg" width="760" height="500" alt="Top-down schematic after Fig. 1 of the paper: sensors grouped into candidate clusters with docking points, a base station at the centre, chargers at their selected clusters, and one charger redirected by the upper level toward an under-served region." loading="lazy"></a>
           <figcaption>The t = 0 deployment of Fig. 1 of the paper, restyled for the site. Decisions are made over docking points: the lower level ranks them with the ARR-F score; the upper level can redirect a charger to an under-served zone.</figcaption>
@@ -176,7 +176,7 @@
       <li><span>01</span><strong>Structured decisions</strong><p>Coupled routing, charging, and allocation as a testbed for sequential decision-making.</p></li>
       <li><span>02</span><strong>Hierarchical decision-making</strong><p>Q-learning at the strategic level over a fast structured lower-level scheduler.</p></li>
       <li><span>03</span><strong>Learning-guided search</strong><p>Policy- and value-guided budgeted PUCT in large dynamic action spaces.</p></li>
-      <li><span>04</span><strong>Coordinated planning</strong><p>Ongoing work on tractable search over interacting multi-charger decisions.</p></li>
+      <li><span>04</span><strong>Coordinated multi-agent planning</strong><p>Ongoing work on tractable search over interacting decisions, using multi-charger scheduling as the current testbed.</p></li>
       <li><span>05</span><strong>Learned models &amp; abstractions</strong><p>Next: dynamics, state/action abstractions, and hierarchy for longer-horizon planning.</p></li>
     </ol>
   </div>
@@ -186,7 +186,7 @@
   <div><p class="section-label">About</p><h2>Research perspective</h2></div>
   <div class="about-copy">
     <p><strong>Now.</strong> LP-BTS combines a graph proposal policy, a learned value critic, and edge-budgeted tree search. A single frozen checkpoint serves action universes from 736 to 2,813 stops without retraining, while matched ablations separate the contribution of learned candidate selection from explicit lookahead. This gives me a controlled setting for studying when learning and planning complement each other.</p>
-    <p><strong>Near term.</strong> I am extending the framework to several chargers through canonical actions and action-space reduction, with the goal of making coordinated planning tractable as the joint decision space grows.</p>
+    <p><strong>Near term.</strong> I am extending the framework to coordinated multi-agent planning, using multi-charger scheduling as a structured testbed. The work studies canonical actions and action-space reduction for making joint-action lookahead tractable as the decision space grows.</p>
     <p><strong>Longer term.</strong> These projects lead to a broader question: how can explicit planning remain effective as more of the decision structure itself becomes learned? I am particularly interested in learned dynamics and world models, state and action abstractions, hierarchical representations, and planning under uncertainty. LP-BTS provides a concrete starting point: replace its current simulator with a learned dynamics model and study how model error, search budget, and transfer across problem instances interact. More broadly, I want to build agents that learn useful internal models and use them to predict, reason, and plan over long horizons.</p>
   </div>
 </section>
