@@ -27,6 +27,7 @@ This file records the intent behind substantive public-facing content changes. I
 - **Research interests:** The CV identifies a coherent trajectory from learning-guided search and graph-based structured actions to coordinated multi-agent planning, learned dynamics and abstractions, and world-model-based planning and reasoning in general-purpose agents.
 - **Testbed framing:** The ongoing extension is presented as learning-guided multi-agent planning, with multi-charger scheduling explicitly identified as its current structured testbed. Historical paper titles remain unchanged.
 - **Research visuals:** The LP-BTS decision schematic appears in both Selected Research and the corresponding preprint entry so readers can connect the paper directly to its planning pipeline.
+- **Hierarchical routing:** The research trajectory now makes HQARRF's lower level concrete: a static-electricity-inspired local ranker balances attraction to urgent demand against repulsion from competing chargers beneath regional Q-learning.
 
 ## Maintenance rule
 
