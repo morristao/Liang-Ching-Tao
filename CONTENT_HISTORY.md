@@ -29,6 +29,7 @@ This file records the intent behind substantive public-facing content changes. I
 - **Research visuals:** The LP-BTS decision schematic appears in both Selected Research and the corresponding preprint entry so readers can connect the paper directly to its planning pipeline.
 - **Hierarchical routing:** The research trajectory now summarizes HQARRF as strategic reinforcement learning paired with electrostatic-inspired, force-aware local coordination.
 - **Longer-term trajectory:** The final stage frames a future agenda around predictive world models and state/action abstractions for reliable long-horizon planning under uncertainty, without presenting it as completed work.
+- **Education & service:** The CV identifies the 2024 Artillery Battalion entry as completed mandatory military service, distinguishing it from voluntary employment while retaining the neutral `R.O.C. Army (Taiwan)` designation.
 
 ## Maintenance rule
 
