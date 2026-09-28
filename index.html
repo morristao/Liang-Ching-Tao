@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Liang-Ching Tao researches learning-guided planning, sequential decision-making, reinforcement learning, and planning with learned models.">
+  <meta name="description" content="Liang-Ching Tao researches learning-guided planning, sequential decision-making, reinforcement learning, and scalable search in dynamic action spaces.">
   <link rel="canonical" href="https://morristao.github.io/Liang-Ching-Tao/">
   <meta property="og:title" content="Liang-Ching Tao | Learning-Guided Planning &amp; Sequential Decision-Making">
-  <meta property="og:description" content="Research on learning-guided planning, sequential decision-making, reinforcement learning, and planning with learned models.">
+  <meta property="og:description" content="Research on learning-guided planning, sequential decision-making, reinforcement learning, and scalable search in dynamic action spaces.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://morristao.github.io/Liang-Ching-Tao/">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230d6179'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-family='Arial' font-size='26' font-weight='700' fill='white'%3ELT%3C/text%3E%3C/svg%3E">
@@ -35,10 +35,10 @@
     <div class="hero-main">
       <p class="kicker">Computer Science · AI Planning &amp; Decision-Making</p>
       <h1>Learning-guided planning for intelligent agents.</h1>
-      <p class="research-line">Planning &amp; Search · Sequential Decision-Making · Reinforcement Learning</p>
+      <p class="research-line">Learning-Guided Search · Structured Sequential Decisions · Reinforcement Learning</p>
       <div class="hero-copy">
         <p>I am an M.S. graduate in Computer Science and Engineering from National Chung Hsing University, Taiwan, advised by Prof. Pi-Chung Wang. My research focuses on <strong>learning-guided planning</strong>: using learned policies and value functions to make explicit search effective in large, state-dependent action spaces. I use mobile charging and resource-allocation problems as structured testbeds for studying bounded planning, hierarchical decisions, and generalization across problem instances.</p>
-        <p>Looking ahead, I hope to extend this line of research toward agents that learn more of the structure required for planning—including dynamics, state and action abstractions, and hierarchical representations—while retaining explicit reasoning about future outcomes over long horizons under uncertainty. I am applying to PhD programs for Fall 2027.</p>
+        <p>Looking ahead, my research interests span autonomous agents, multi-agent planning, reinforcement learning, and learning-guided search, with a focus on sequential decision-making under uncertainty. My long-term goal is to build general-purpose intelligent agents that learn useful internal representations and predictive models, reason about possible futures, and make adaptive long-horizon decisions in complex settings. I am applying to PhD programs for Fall 2027.</p>
       </div>
       <div class="hero-actions">
         <a class="button primary" href="academic_cv.pdf?v=20260926" target="_blank" rel="noopener">View CV ↗</a>
@@ -60,7 +60,7 @@
       <div class="project-content">
         <p class="project-type">Ongoing · Sep. 2026–present</p>
         <h3>Learning-Guided Multi-Agent Planning with Neural-Guided Search</h3>
-        <p>Building directly on LP-BTS, this ongoing extension uses multi-charger scheduling as a structured testbed for coordinated multi-agent planning, where agents' decisions interact through a combinatorial joint action space. It carries forward the same learning-guided planning principle while studying graph-based policy representations, canonical actions, action-space reduction, and neural-guided search for keeping coordinated lookahead tractable—algorithmic questions intended to extend to other structured coordination problems.</p>
+        <p>Building on LP-BTS, this ongoing extension uses multi-charger scheduling as a structured testbed for coordinated multi-agent planning. Its long-term goal is to study how graph-based proposal representations, canonical actions, action-space reduction, and neural-guided search can keep joint-action lookahead tractable as several agents’ decisions interact. The current focus is the planning structure needed for coordination, with the aim of extending these lessons to other structured multi-agent problems.</p>
       </div>
     </article>
 
@@ -69,7 +69,8 @@
       <div class="project-content">
         <p class="project-type">arXiv preprint · Sep. 2026</p>
         <h3>Learning-Guided Planning in Large Dynamic Action Spaces: Budgeted Tree Search for One-to-Many Mobile Charging</h3>
-        <p>LP-BTS studies bounded planning when each decision is drawn from a large, changing action set. It combines a graph proposal policy and learned value critic with edge-budgeted PUCT, using learning to focus explicit lookahead rather than replace it. Because the policy scores candidates without a fixed output head, a single frozen checkpoint covers every evaluated setting, spanning action universes from 736 to 2,813 stops without retraining.</p>
+        <p>LP-BTS studies planning when the available actions are numerous, structured, and rebuilt as the state changes. A graph proposal policy first scores candidate stops and narrows search to a compact support. A learned value critic estimates the promise of partial plans, and budgeted PUCT—a tree-search rule with a fixed simulation budget—compares short futures before an action is chosen. Mobile charging is the current testbed for the broader question: how can learning focus limited computation while explicit search evaluates future consequences?</p>
+        <p class="project-result"><strong>Matched RL comparison:</strong> against a trained, source-derived deep reinforcement learning baseline, LP-BTS improves survival by <strong>12.29 percentage points</strong> and alive-AUC by <strong>4.60 percentage points</strong>, while travelling <strong>46.1% as far</strong> (53,015 m vs. 114,933 m).<span class="result-note">Sealed 30-scenario evaluation. The trained comparator is reconstructed from its source method under the paper’s common-physics protocol.</span></p>
         <figure class="project-visual project-visual-diagram">
           <a href="assets/research/lpbts-decision.svg" target="_blank" rel="noopener"><img src="assets/research/lpbts-decision.svg" width="1000" height="604" alt="Three-step schematic. Step one: candidate charging stops induced by the geometry of the live sensors. Step two: the graph policy narrows them to thirty-two sampled stops. Step three: budgeted tree search commits one stop, whose charging radius covers the recipient set the charger then serves." loading="lazy"></a>
           <figcaption>One LP-BTS decision, schematic. Candidate stops are recomputed from the live sensor geometry, the learned policy samples a small planning support, and budgeted search commits a single stop. <a href="https://arxiv.org/abs/2609.17429" target="_blank" rel="noopener">Full definitions in the preprint ↗</a></figcaption>
@@ -84,6 +85,7 @@
         <p class="project-type">Master’s thesis · arXiv preprint · 2025–2026</p>
         <h3>HQARRF: Hierarchical Q-learning and Force-aware Routing for Multi-Charger Scheduling</h3>
         <p>HQARRF uses multi-charger scheduling as a testbed for hierarchical coordination. A gated Q-learning upper level redirects service toward high-risk, under-served regions, while a force-aware lower-level ranker handles local routing and charging decisions—separating strategic allocation from fast structured action selection.</p>
+        <p class="project-result"><strong>Robustness across 27 settings:</strong> HQARRF achieves the highest mean survival in <strong>26 of 27</strong> evaluated parameter settings, improving survival by <strong>20.7 percentage points</strong> over the mean of five baselines and by <strong>9.2 percentage points</strong> over the strongest baseline at each setting.<span class="result-note">Results are reported as mean survival across the paper’s 27-parameter evaluation grid.</span></p>
         <figure class="project-visual project-visual-diagram">
           <a href="assets/research/hqarrf-schematic.svg" target="_blank" rel="noopener"><img src="assets/research/hqarrf-schematic.svg" width="760" height="500" alt="Top-down schematic after Fig. 1 of the paper: sensors grouped into candidate clusters with docking points, a base station at the centre, chargers at their selected clusters, and one charger redirected by the upper level toward an under-served region." loading="lazy"></a>
           <figcaption>The t = 0 deployment of Fig. 1 of the paper, restyled for the site. Decisions are made over docking points: the lower level ranks them with the ARR-F score; the upper level can redirect a charger to an under-served zone.</figcaption>
@@ -96,7 +98,7 @@
 
 <section id="papers" class="papers section-wrap">
   <h2>Papers and presentations</h2>
-  <p class="papers-note">First author on every item below. Status labels distinguish public preprints, accepted oral/poster presentations, and previously presented work. The MAMM 2026 presentations are non-archival; one-page conference abstracts are linked where available.</p>
+  <p class="papers-note">I am the first author of all works listed below. Status labels distinguish public preprints, accepted oral/poster presentations, and previously presented work. One-page conference abstracts are linked where available; full manuscripts are available on request where permitted.</p>
   <ol class="paper-list">
     <li>
       <p class="paper-status"><span class="badge badge-publication">Preprint</span><span>arXiv · Sep. 2026</span></p>
@@ -175,13 +177,13 @@
 <section id="trajectory" class="trajectory">
   <div class="section-wrap">
     <p class="section-label">Research trajectory</p>
-    <h2>From structured decisions to learned models for planning.</h2>
+    <h2>From structured decisions to learning the structure required for reliable planning.</h2>
     <ol class="trajectory-list" style="grid-template-columns:repeat(auto-fit,minmax(170px,1fr))">
-      <li><span>01</span><strong>Structured decisions</strong><p>Coupled routing, charging, and allocation as a testbed for sequential decision-making.</p></li>
-      <li><span>02</span><strong>Hierarchical decision-making</strong><p>Strategic RL with electrostatic-inspired, force-aware coordination for local decisions.</p></li>
-      <li><span>03</span><strong>Learning-guided search</strong><p>Policy- and value-guided budgeted PUCT in large dynamic action spaces.</p></li>
-      <li><span>04</span><strong>Coordinated multi-agent planning</strong><p>Ongoing work on tractable search over interacting decisions, using multi-charger scheduling as the current testbed.</p></li>
-      <li><span>05</span><strong>Learning the structure of planning</strong><p>Toward predictive world models and state/action abstractions for reliable long-horizon planning under uncertainty.</p></li>
+      <li><span>01</span><em class="stage">Completed foundation</em><strong>Structured decisions</strong><p>Coupled routing, charging, and allocation as a testbed for sequential decision-making.</p></li>
+      <li><span>02</span><em class="stage">Completed work</em><strong>Hierarchical decision-making</strong><p>Strategic RL with electrostatic-inspired, force-aware coordination for local decisions.</p></li>
+      <li><span>03</span><em class="stage">Completed work</em><strong>Learning-guided search</strong><p>Policy- and value-guided budgeted PUCT in large dynamic action spaces.</p></li>
+      <li><span>04</span><em class="stage">Ongoing extension</em><strong>Coordinated multi-agent planning</strong><p>Tractable search over interacting decisions, using multi-charger scheduling as the current testbed.</p></li>
+      <li><span>05</span><em class="stage">PhD direction</em><strong>Learning internal models for planning</strong><p>Toward learned world models, state/action abstractions, and long-horizon decision-making under uncertainty.</p></li>
     </ol>
   </div>
 </section>
@@ -189,9 +191,9 @@
 <section id="about" class="about section-wrap">
   <div><p class="section-label">About</p><h2>Research perspective</h2></div>
   <div class="about-copy">
-    <p><strong>Now.</strong> LP-BTS combines a graph proposal policy, a learned value critic, and edge-budgeted tree search. A single frozen checkpoint serves action universes from 736 to 2,813 stops without retraining, while matched ablations separate the contribution of learned candidate selection from explicit lookahead. This gives me a controlled setting for studying when learning and planning complement each other.</p>
-    <p><strong>Near term.</strong> I am extending the framework to coordinated multi-agent planning, using multi-charger scheduling as a structured testbed. The work studies canonical actions and action-space reduction for making joint-action lookahead tractable as the decision space grows.</p>
-    <p><strong>Longer term.</strong> These projects lead to a broader question: how can explicit planning remain effective as more of the decision structure itself becomes learned? I am particularly interested in learned dynamics and world models, state and action abstractions, hierarchical representations, and planning under uncertainty. LP-BTS provides a concrete starting point: replace its current simulator with a learned dynamics model and study how model error, search budget, and transfer across problem instances interact. More broadly, I want to build agents that learn useful internal models and use them to predict, reason, and plan over long horizons.</p>
+    <p><strong>Completed work.</strong> LP-BTS asks how a planner can reason ahead when its available actions are numerous and change with the state. Its graph policy identifies promising candidates, its learned value critic evaluates partial futures, and budgeted search compares those futures before commitment. One frozen checkpoint scored action universes from 736 to 2,813 stops without retraining, making mobile charging a controlled testbed for studying how learning and search complement one another.</p>
+    <p><strong>Ongoing work.</strong> I am extending this framework toward coordinated multi-agent planning with several chargers. The immediate questions are how to represent compatible choices consistently, reduce the number of choices worth searching, and allocate a limited lookahead budget over their future interactions.</p>
+    <p><strong>PhD direction.</strong> I want to study how agents can learn internal representations and world models that support abstraction, reasoning about possible futures, and long-horizon decision-making. I am particularly interested in how these learned models can support hierarchical planning: decomposing goals, evaluating alternative courses of action, and revising plans as new information becomes available. My longer-term aim is to develop agents that can use these capabilities flexibly across tasks and coordinate with other agents under uncertainty.</p>
   </div>
 </section>
 </main>
