@@ -24,7 +24,7 @@
       <a href="#papers">Papers</a>
       <a href="#trajectory">Trajectory</a>
       <a href="#about">About</a>
-      <a href="academic_cv.pdf?v=20260926" target="_blank" rel="noopener">CV</a>
+      <a href="academic_cv.pdf?v=20260929" target="_blank" rel="noopener">CV</a>
     </div>
   </nav>
 </header>
@@ -35,13 +35,13 @@
     <div class="hero-main">
       <p class="kicker">Computer Science · AI Planning &amp; Decision-Making</p>
       <h1>Learning-guided planning for intelligent agents.</h1>
-      <p class="research-line">Learning-Guided Search · Structured Sequential Decisions · Reinforcement Learning</p>
+      <p class="research-line">Sequential Decision-Making · Reinforcement Learning · Multi-Agent Planning</p>
       <div class="hero-copy">
-        <p>I am an M.S. graduate in Computer Science and Engineering from National Chung Hsing University, Taiwan, advised by Prof. Pi-Chung Wang. My research focuses on <strong>learning-guided planning</strong>: using learned policies and value functions to make explicit search effective in large, state-dependent action spaces. I use mobile charging and resource-allocation problems as structured testbeds for studying bounded planning, hierarchical decisions, and generalization across problem instances.</p>
-        <p>Looking ahead, my research interests span autonomous agents, multi-agent planning, reinforcement learning, and learning-guided search, with a focus on sequential decision-making under uncertainty. My long-term goal is to build general-purpose intelligent agents that learn useful internal representations and predictive models, reason about possible futures, and make adaptive long-horizon decisions in complex settings. I am applying to PhD programs for Fall 2027.</p>
+        <p>I am an M.S. graduate in Computer Science and Engineering from National Chung Hsing University, Taiwan, advised by Prof. Pi-Chung Wang. My research focuses on <strong>learning-guided planning</strong>: using learned policies and value functions to make explicit search effective in large, state-dependent action spaces. I use mobile charging and resource-allocation problems as structured testbeds for studying planning under computational budgets, hierarchical decisions, and generalization across problem instances.</p>
+        <p>My current research is moving toward coordinated multi-agent planning. For my PhD, I want to study how agents can learn internal representations and world models for abstraction, reasoning about possible futures, and long-horizon planning under uncertainty. My broader goal is to develop agents that use these capabilities flexibly across tasks. I am applying to PhD programs for Fall 2027.</p>
       </div>
       <div class="hero-actions">
-        <a class="button primary" href="academic_cv.pdf?v=20260926" target="_blank" rel="noopener">View CV ↗</a>
+        <a class="button primary" href="academic_cv.pdf?v=20260929" target="_blank" rel="noopener">View CV ↗</a>
         <a class="button" href="mailto:liangkingtao@gmail.com">Email ↗</a>
         <a class="button" href="https://github.com/morristao">GitHub ↗</a>
       </div>
@@ -59,8 +59,8 @@
       <div class="project-index">01</div>
       <div class="project-content">
         <p class="project-type">Ongoing · Sep. 2026–present</p>
-        <h3>Learning-Guided Multi-Agent Planning with Neural-Guided Search</h3>
-        <p>Building on LP-BTS, this ongoing extension uses multi-charger scheduling as a structured testbed for coordinated multi-agent planning. Its long-term goal is to study how graph-based proposal representations, canonical actions, action-space reduction, and neural-guided search can keep joint-action lookahead tractable as several agents’ decisions interact. The current focus is the planning structure needed for coordination, with the aim of extending these lessons to other structured multi-agent problems.</p>
+        <h3>Learning-Guided Search for Multi-Agent Planning</h3>
+        <p>I am extending LP-BTS to coordinated multi-agent planning, using multi-charger scheduling as a structured testbed. The central question is how learned proposal policies and structured action representations can make search over interacting agents’ decisions tractable. Current work focuses on representing compatible joint actions, reducing the candidate space, and allocating limited search budgets to evaluate future interactions.</p>
       </div>
     </article>
 
@@ -177,13 +177,13 @@
 <section id="trajectory" class="trajectory">
   <div class="section-wrap">
     <p class="section-label">Research trajectory</p>
-    <h2>From structured decisions to learning the structure required for reliable planning.</h2>
+    <h2>From structured decision-making to learning internal models for planning.</h2>
     <ol class="trajectory-list" style="grid-template-columns:repeat(auto-fit,minmax(170px,1fr))">
-      <li><span>01</span><em class="stage">Completed foundation</em><strong>Structured decisions</strong><p>Coupled routing, charging, and allocation as a testbed for sequential decision-making.</p></li>
-      <li><span>02</span><em class="stage">Completed work</em><strong>Hierarchical decision-making</strong><p>Strategic RL with electrostatic-inspired, force-aware coordination for local decisions.</p></li>
-      <li><span>03</span><em class="stage">Completed work</em><strong>Learning-guided search</strong><p>Policy- and value-guided budgeted PUCT in large dynamic action spaces.</p></li>
-      <li><span>04</span><em class="stage">Ongoing extension</em><strong>Coordinated multi-agent planning</strong><p>Tractable search over interacting decisions, using multi-charger scheduling as the current testbed.</p></li>
-      <li><span>05</span><em class="stage">PhD direction</em><strong>Learning internal models for planning</strong><p>Toward learned world models, state/action abstractions, and long-horizon decision-making under uncertainty.</p></li>
+      <li><span>01</span><span class="stage">Completed foundation</span><strong>Structured decisions</strong><p>Coupled routing, charging, and allocation as a testbed for sequential decision-making.</p></li>
+      <li><span>02</span><span class="stage">Completed work</span><strong>Hierarchical decision-making</strong><p>Strategic reinforcement learning with electrostatic-inspired, force-aware routing for local decisions.</p></li>
+      <li><span>03</span><span class="stage">Completed work</span><strong>Learning-guided search</strong><p>Policy- and value-guided budgeted PUCT in large dynamic action spaces.</p></li>
+      <li><span>04</span><span class="stage">Ongoing extension</span><strong>Coordinated multi-agent planning</strong><p>Tractable search over interacting decisions, using multi-charger scheduling as the current testbed.</p></li>
+      <li><span>05</span><span class="stage">PhD direction</span><strong>Learning internal models for planning</strong><p>Toward learned world models, state/action abstractions, and long-horizon decision-making under uncertainty.</p></li>
     </ol>
   </div>
 </section>
@@ -191,7 +191,7 @@
 <section id="about" class="about section-wrap">
   <div><p class="section-label">About</p><h2>Research perspective</h2></div>
   <div class="about-copy">
-    <p><strong>Completed work.</strong> LP-BTS asks how a planner can reason ahead when its available actions are numerous and change with the state. Its graph policy identifies promising candidates, its learned value critic evaluates partial futures, and budgeted search compares those futures before commitment. One frozen checkpoint scored action universes from 736 to 2,813 stops without retraining, making mobile charging a controlled testbed for studying how learning and search complement one another.</p>
+    <p><strong>Completed work.</strong> LP-BTS asks how a planner can reason ahead when its available actions are numerous and change with the state. Its graph policy identifies promising candidates, its learned value critic evaluates partial futures, and budgeted search compares those futures before commitment. This work examines how learned policies and value estimates can focus limited search on promising actions in large, state-dependent action spaces.</p>
     <p><strong>Ongoing work.</strong> I am extending this framework toward coordinated multi-agent planning with several chargers. The immediate questions are how to represent compatible choices consistently, reduce the number of choices worth searching, and allocate a limited lookahead budget over their future interactions.</p>
     <p><strong>PhD direction.</strong> I want to study how agents can learn internal representations and world models that support abstraction, reasoning about possible futures, and long-horizon decision-making. I am particularly interested in how these learned models can support hierarchical planning: decomposing goals, evaluating alternative courses of action, and revising plans as new information becomes available. My longer-term aim is to develop agents that can use these capabilities flexibly across tasks and coordinate with other agents under uncertainty.</p>
   </div>
@@ -201,7 +201,7 @@
 <footer>
   <div class="footer-wrap">
     <p><strong>Liang-Ching Tao</strong><br>Taiwan · Learning-guided planning and sequential decision-making<br><a href="mailto:liangkingtao@gmail.com">liangkingtao@gmail.com</a> · <a href="https://github.com/morristao">GitHub</a></p>
-    <a href="academic_cv.pdf?v=20260926" target="_blank" rel="noopener">Curriculum vitae ↗</a>
+    <a href="academic_cv.pdf?v=20260929" target="_blank" rel="noopener">Curriculum vitae ↗</a>
   </div>
 </footer>
 </body>
